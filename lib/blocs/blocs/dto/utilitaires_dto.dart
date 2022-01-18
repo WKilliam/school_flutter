@@ -1,19 +1,35 @@
+import 'package:flutter/material.dart';
+
 class UtilitairesDTO {
 
+  String _path;
   String _name;
-  Function(dynamic,dynamic) _calculatrice;
+  MaterialColor _color;
+  String _toogle;
 
-  UtilitairesDTO(this._name, this._calculatrice);
+  UtilitairesDTO(this._path, this._name, this._color, this._toogle);
 
-  Function get calculatrice => _calculatrice;
+  String get toogle => _toogle;
 
-  set calculatrice(dynamic value) {
-    _calculatrice = value;
+  set toogle(String value) {
+    _toogle = value;
+  }
+
+  MaterialColor get color => _color;
+
+  set color(MaterialColor value) {
+    _color = value;
   }
 
   String get name => _name;
 
   set name(String value) {
     _name = value;
+  }
+
+  String get path => _path;
+
+  set path(String value) {
+    _path = value;
   }
 }

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:school_flutter/blocs/blocs/dto/utilitaires_dto.dart';
 import 'package:school_flutter/blocs/blocs/enum/utilitaires_enum.dart';
 
@@ -8,11 +9,8 @@ import '../../bloc.dart';
 class UtilitairesControllerBloc extends Bloc {
 
   final Map<UtilitaireEnum,UtilitairesDTO> _mapTextType = {
-    UtilitaireEnum.idCalculatrice : UtilitairesDTO("calculatrice",(text,texta) =>{print(text+texta)}),
-    UtilitaireEnum.idCalculatrices : UtilitairesDTO("calculatrice",(text,texta) =>{print(text+texta)}),
-    UtilitaireEnum.idCalculatricess : UtilitairesDTO("calculatrice",(text,texta) =>{print(text+texta)}),
-    UtilitaireEnum.idCalculatricesss : UtilitairesDTO("calculatrice",(text,texta) =>{print(text+texta)}),
-
+    // TO DO : Add New Fonctionalité
+    UtilitaireEnum.idCalculatrice : UtilitairesDTO('/calculator','calculator',Colors.blue,'Calculator fonction')
   };
 
   final _streamController = StreamController<Map<UtilitaireEnum,UtilitairesDTO>>();
