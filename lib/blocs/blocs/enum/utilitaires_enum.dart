@@ -1,4 +1,3 @@
 enum UtilitaireEnum {
   idCalculatrice,
-  idpromotions,
 }
