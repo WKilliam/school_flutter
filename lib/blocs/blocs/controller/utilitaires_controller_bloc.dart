@@ -9,6 +9,10 @@ class UtilitairesControllerBloc extends Bloc {
 
   final Map<UtilitaireEnum,UtilitairesDTO> _mapTextType = {
     UtilitaireEnum.idCalculatrice : UtilitairesDTO("calculatrice",(text,texta) =>{print(text+texta)}),
+    UtilitaireEnum.idCalculatrices : UtilitairesDTO("calculatrice",(text,texta) =>{print(text+texta)}),
+    UtilitaireEnum.idCalculatricess : UtilitairesDTO("calculatrice",(text,texta) =>{print(text+texta)}),
+    UtilitaireEnum.idCalculatricesss : UtilitairesDTO("calculatrice",(text,texta) =>{print(text+texta)}),
+
   };
 
   final _streamController = StreamController<Map<UtilitaireEnum,UtilitairesDTO>>();

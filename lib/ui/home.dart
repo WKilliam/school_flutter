@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:school_flutter/blocs/bloc_provider.dart';
 import 'package:school_flutter/blocs/blocs/controller/utilitaires_controller_bloc.dart';
@@ -8,24 +8,32 @@ import 'package:school_flutter/blocs/blocs/enum/utilitaires_enum.dart';
 class Home extends StatelessWidget {
   Center center(String text) {
     return Center(
-      child: Text(text, style: TextStyle(fontSize: 32, color: Colors.blue)),
+      child: Text(text, style: const TextStyle(fontSize: 32, color: Colors.blue)),
     );
   }
 
-  List<Widget> allData(snapshot){
+  List<Widget> allData(snapshot,context){
     var list = <Widget>[];
     snapshot.data.forEach((keys,value) =>
         list.add(
-            Container(
-              padding: const EdgeInsets.all(8),
-              child: Text('$keys: $value'),
-              color: Colors.teal[100],
-            )
+          ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+                    (Set<MaterialState> states) {
+                  if (states.contains(MaterialState.pressed)) {
+                    return Theme.of(context).colorScheme.primary.withOpacity(0.5);
+                  }
+                  return null; // Use the component's default.
+                },
+              ),
+            ),
+            onPressed: ()=>{print("test")},
+            child: Text('$keys: ${value.name}'),
+          ),
         )
     );
     return list;
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +51,7 @@ class Home extends StatelessWidget {
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
               crossAxisCount: 2,
-              children: allData(snapshot)
+              children: allData(snapshot,context)
             );
           } else {
             return center("Snapshot n'a pas de données");

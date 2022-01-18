@@ -19,6 +19,10 @@ class MyApp extends StatelessWidget {
             child: Home(),
             bloc: UtilitairesControllerBloc(),
           ),
+          "/calculate": (BuildContext context) => BlocProvider<UtilitairesControllerBloc>(
+            child: Home(),
+            bloc: UtilitairesControllerBloc(),
+          ),
         }
     );
   }
