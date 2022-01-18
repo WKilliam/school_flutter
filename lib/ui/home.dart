@@ -34,6 +34,7 @@ class Home extends StatelessWidget {
                     Icons.calculate,
                     size: 50,
                   ),
+
                   Text('${value.name}'),
                 ],
               )),
