@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:school_flutter/blocs/blocs/controller/utilitaires_controller_bloc.dart';
-import 'package:school_flutter/ui/calculator.dart';
 import 'package:school_flutter/ui/home.dart';
 
 import 'blocs/bloc_provider.dart';
@@ -19,11 +18,7 @@ class MyApp extends StatelessWidget {
           "/home": (BuildContext context) => BlocProvider<UtilitairesControllerBloc>(
             child: Home(),
             bloc: UtilitairesControllerBloc(),
-          ),
-          "/calculator": (BuildContext context) => BlocProvider<UtilitairesControllerBloc>(
-            child: Calculator(),
-            bloc: UtilitairesControllerBloc(),
-          ),
+          )
         }
     );
   }
