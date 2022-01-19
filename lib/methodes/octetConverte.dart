@@ -1,3 +1,4 @@
 class octetConvert {
+
   // static const
 }
