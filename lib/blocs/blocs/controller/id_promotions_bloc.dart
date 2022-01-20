@@ -3,21 +3,27 @@ import '../../bloc.dart';
 
 class IDPromotionsBloc extends Bloc {
 
-  String _value = "";
+  final Map <String,double> _price = {
+    "PRICE": 0.0,
+    "POURCENTAGE": 0.0,
+    "RESULTAT":0.0,
+    "PROMOTIONS":0.0,
+  };
 
-  final _streamController = StreamController<String>();
-  Sink<String> get sink => _streamController.sink;
-  Stream<String> get stream => _streamController.stream;
+
+  final _streamController = StreamController <Map <String,double>>();
+  Sink<Map <String,double>> get sink => _streamController.sink;
+  Stream<Map <String,double>> get stream => _streamController.stream;
 
   IDPromotionsBloc(){
-    sink.add(_value);
+    sink.add(_price);
   }
 
-  String get value => _value;
 
-  void update(String inputText) {
-    _value = inputText;
-    sink.add(_value);
+
+  void update(String key,double value) {
+    _price[key] = value;
+    sink.add(_price);
   }
 
   @override
