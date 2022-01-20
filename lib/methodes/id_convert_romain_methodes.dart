@@ -1,8 +1,12 @@
 // class IdConvertRomainMethodes {
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:school_flutter/blocs/bloc_provider.dart';
+import 'package:school_flutter/blocs/blocs/controller/id_convert_romain_bloc.dart';
 
-class IdConvertRomainMethodes {
+class IdConvertRomainMethodes extends StatelessWidget {
   romainThousandth(int number) {
     var mapThousandth = <int, String>{1000: "M", 2000: "MM", 3000: "MMM"};
     return mapThousandth[number];
@@ -64,12 +68,13 @@ class IdConvertRomainMethodes {
     if (number <= 3999) {
       switch (split.length) {
         case 4:
-        // test : 1 1 1 1
+          // test : 1 1 1 1
           if (convertIntToString(split[0], 1000) != 0 &&
               convertIntToString(split[1], 100) != 0 &&
               convertIntToString(split[2], 10) != 0 &&
               convertIntToString(split[3], 1) != 0) {
-            var thousandth = romainThousandth(convertIntToString(split[0], 1000));
+            var thousandth =
+                romainThousandth(convertIntToString(split[0], 1000));
             var hundred = romainHundred(convertIntToString(split[1], 100));
             var ten = romainTen(convertIntToString(split[2], 10));
             var single = romainSingle(convertIntToString(split[3], 1));
@@ -81,7 +86,8 @@ class IdConvertRomainMethodes {
               convertIntToString(split[1], 100) == 0 &&
               convertIntToString(split[2], 10) != 0 &&
               convertIntToString(split[3], 1) != 0) {
-            var thousandth = romainThousandth(convertIntToString(split[0], 1000));
+            var thousandth =
+                romainThousandth(convertIntToString(split[0], 1000));
             var ten = romainTen(convertIntToString(split[2], 10));
             var single = romainSingle(convertIntToString(split[3], 1));
             finalRomain = '$thousandth$ten$single';
@@ -92,7 +98,8 @@ class IdConvertRomainMethodes {
               convertIntToString(split[1], 100) == 0 &&
               convertIntToString(split[2], 10) == 0 &&
               convertIntToString(split[3], 1) != 0) {
-            var thousandth = romainThousandth(convertIntToString(split[0], 1000));
+            var thousandth =
+                romainThousandth(convertIntToString(split[0], 1000));
             var single = romainSingle(convertIntToString(split[3], 1));
             finalRomain = '$thousandth$single';
             return finalRomain;
@@ -102,7 +109,8 @@ class IdConvertRomainMethodes {
               convertIntToString(split[1], 100) == 0 &&
               convertIntToString(split[2], 10) == 0 &&
               convertIntToString(split[3], 1) == 0) {
-            var thousandth = romainThousandth(convertIntToString(split[0], 1000));
+            var thousandth =
+                romainThousandth(convertIntToString(split[0], 1000));
             finalRomain = '$thousandth';
             return finalRomain;
           }
@@ -111,7 +119,8 @@ class IdConvertRomainMethodes {
               convertIntToString(split[1], 100) == 0 &&
               convertIntToString(split[2], 10) != 0 &&
               convertIntToString(split[3], 1) == 0) {
-            var thousandth = romainThousandth(convertIntToString(split[0], 1000));
+            var thousandth =
+                romainThousandth(convertIntToString(split[0], 1000));
             var ten = romainTen(convertIntToString(split[2], 10));
             finalRomain = '$thousandth$ten';
             return finalRomain;
@@ -121,7 +130,8 @@ class IdConvertRomainMethodes {
               convertIntToString(split[1], 100) != 0 &&
               convertIntToString(split[2], 10) == 0 &&
               convertIntToString(split[3], 1) == 0) {
-            var thousandth = romainThousandth(convertIntToString(split[0], 1000));
+            var thousandth =
+                romainThousandth(convertIntToString(split[0], 1000));
             var hundred = romainHundred(convertIntToString(split[1], 100));
             finalRomain = '$thousandth$hundred';
             return finalRomain;
@@ -131,7 +141,8 @@ class IdConvertRomainMethodes {
               convertIntToString(split[1], 100) != 0 &&
               convertIntToString(split[2], 10) != 0 &&
               convertIntToString(split[3], 1) == 0) {
-            var thousandth = romainThousandth(convertIntToString(split[0], 1000));
+            var thousandth =
+                romainThousandth(convertIntToString(split[0], 1000));
             var hundred = romainHundred(convertIntToString(split[1], 100));
             var ten = romainTen(convertIntToString(split[2], 10));
             finalRomain = '$thousandth$hundred$ten';
@@ -141,13 +152,13 @@ class IdConvertRomainMethodes {
               convertIntToString(split[1], 100) != 0 &&
               convertIntToString(split[2], 10) == 0 &&
               convertIntToString(split[3], 1) != 0) {
-            var thousandth = romainThousandth(convertIntToString(split[0], 1000));
+            var thousandth =
+                romainThousandth(convertIntToString(split[0], 1000));
             var hundred = romainHundred(convertIntToString(split[1], 100));
             var single = romainSingle(convertIntToString(split[3], 1));
             finalRomain = '$thousandth$hundred$single';
             return finalRomain;
-          }
-          else {
+          } else {
             return "error";
           }
         case 3:
@@ -173,15 +184,13 @@ class IdConvertRomainMethodes {
             var ten = romainTen(convertIntToString(split[1], 10));
             finalRomain = '$hundred$ten';
             return finalRomain;
-          }
-          else if (convertIntToString(split[0], 100) != 0 &&
+          } else if (convertIntToString(split[0], 100) != 0 &&
               convertIntToString(split[1], 10) == 0 &&
               convertIntToString(split[2], 1) == 0) {
             var hundred = romainHundred(convertIntToString(split[0], 100));
             finalRomain = '$hundred';
             return finalRomain;
-          }
-          else {
+          } else {
             return "error";
           }
         case 2:
@@ -195,7 +204,7 @@ class IdConvertRomainMethodes {
             return finalRomain;
           }
         case 1:
-          var single = romainSingle(convertIntToString(split[0],1));
+          var single = romainSingle(convertIntToString(split[0], 1));
           finalRomain = single;
           return finalRomain;
         default:
@@ -204,5 +213,58 @@ class IdConvertRomainMethodes {
     } else {
       return "limit exceeded";
     }
+  }
+
+  Center center(String text) {
+    return Center(
+      child:
+          Text(text, style: const TextStyle(fontSize: 32, color: Colors.blue)),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final bloc = BlocProvider.of<IdConvertRomainBloc>(context);
+    return Scaffold(
+        body: StreamBuilder<String>(
+      stream: bloc?.stream,
+      builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+        if (snapshot.data == null) {
+          return center("Snapshot est null");
+        } else if (snapshot.hasData) {
+          return Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/tool.jpg"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: Center(
+                child: Column(
+                  children: [
+                    TextField(
+                      keyboardType: TextInputType.number,
+                      textAlign: TextAlign.center,
+                      onChanged: (number) {
+                        String romainConvert =
+                            toRomainConvert(int.parse(number));
+                        bloc?.update(romainConvert);
+                      },
+                      decoration: const InputDecoration(
+                        filled: true,
+                        contentPadding: EdgeInsets.only(
+                            bottom: 5.0, left: 10.0, right: 10.0),
+                      ),
+                    ),
+                    Text('${snapshot.data}')
+                  ],
+                ),
+              )
+          );
+        } else {
+          return center("Snapshot n'a pas de données");
+        }
+      },
+    ));
   }
 }
