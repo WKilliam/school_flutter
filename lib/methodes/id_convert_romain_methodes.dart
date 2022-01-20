@@ -233,37 +233,94 @@ class IdConvertRomainMethodes extends StatelessWidget {
           return center("Snapshot est null");
         } else if (snapshot.hasData) {
           return Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/tool.jpg"),
-                  fit: BoxFit.cover,
-                ),
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/tool.jpg"),
+                fit: BoxFit.cover,
               ),
-              child: Center(
-                child: Column(
-                  children: [
-                    TextField(
-                      keyboardType: TextInputType.number,
-                      textAlign: TextAlign.center,
-                      onChanged: (number) {
-                        if(number == ""){
-                          bloc?.update("");
-                        }else{
-                          String romainConvert = toRomainConvert(int.parse(number));
-                          bloc?.update(romainConvert);
-                        }
-                      },
-                      decoration: const InputDecoration(
-                        filled: true,
-                        contentPadding: EdgeInsets.only(
-                            bottom: 5.0, left: 10.0, right: 10.0),
+            ),
+            child: Center(
+              child:Container(
+                width: 350,
+                height: 250,
+                child: Card(
+                  child:  Center(
+                    child: Column(
+                        children: [
+                          const SizedBox(height: 50,),
+                          SizedBox(
+                            width: 150,
+                            height: 50,
+                            child: TextField(
+                              keyboardType: TextInputType.number,
+                              textAlign: TextAlign.center,
+                              onChanged: (number) {
+                                if(number == ""){
+                                  bloc?.update("");
+                                }else{
+                                  String romainConvert = toRomainConvert(int.parse(number));
+                                  bloc?.update(romainConvert);
+                                }
+                              },
+                            ),
+                          ),
+                          const SizedBox(height: 50,),
+                          Text('Convertion romain : ${snapshot.data}')
+                        ],
                       ),
                     ),
-                    Text('${snapshot.data}')
+                  ),
+                decoration: const BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 20.0,
+                    ),
                   ],
                 ),
-              )
+              ),
+            ),
           );
+
+
+          // return Container(
+          //     decoration: const BoxDecoration(
+          //       image: DecorationImage(
+          //         image: AssetImage("assets/images/tool.jpg"),
+          //         fit: BoxFit.cover,
+          //       ),
+          //     ),
+          //     child: Center(
+          //       child: Card(
+          //
+          //         margin: EdgeInsets.all(50),
+          //       ),
+          //     )
+          // Center(
+          //   child: Column(
+          //     children: [
+          //       TextField(
+          //         keyboardType: TextInputType.number,
+          //         textAlign: TextAlign.center,
+          //         onChanged: (number) {
+          //           if(number == ""){
+          //             bloc?.update("");
+          //           }else{
+          //             String romainConvert = toRomainConvert(int.parse(number));
+          //             bloc?.update(romainConvert);
+          //           }
+          //         },
+          //         decoration: const InputDecoration(
+          //           filled: true,
+          //           contentPadding: EdgeInsets.only(
+          //               bottom: 5.0, left: 10.0, right: 10.0),
+          //         ),
+          //       ),
+          //       Text('${snapshot.data}')
+          //     ],
+          //   ),
+          // )
+          // );
         } else {
           return center("Snapshot n'a pas de données");
         }
