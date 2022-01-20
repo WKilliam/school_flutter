@@ -11,9 +11,7 @@ class UtilitairesControllerBloc extends Bloc {
   final Map<UtilitaireEnum,UtilitairesDTO> _mapTextType = {
     // TO DO : Add New Fonctionalité
     UtilitaireEnum.id_percent : UtilitairesDTO('/percent','Percent',Colors.blue,'Calculator fonction'),
-    UtilitaireEnum.id_birthday : UtilitairesDTO('/Mybirthday','MyBirthday',Colors.yellow,'Calculator fonction'),
-    UtilitaireEnum.id_calculate_temperature: UtilitairesDTO('/calculate_temperature','Calculate of temperature',Colors.red,'Calculator fonction'),
-    UtilitaireEnum.id_convert_distance : UtilitairesDTO('/convert_distance','Convert distance',Colors.green,'Calculator fonction')
+    UtilitaireEnum.id_convert_romain : UtilitairesDTO('/convert_romain','Convert romain',Colors.red,'Convert romain'),
   };
 
   final _streamController = StreamController<Map<UtilitaireEnum,UtilitairesDTO>>();

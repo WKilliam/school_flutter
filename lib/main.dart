@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
             child: Home(),
             bloc: UtilitairesControllerBloc(),
           ),
-          "/percent": (BuildContext context) => BlocProvider<IdConvertRomainBloc>(
+          "/convert_romain": (BuildContext context) => BlocProvider<IdConvertRomainBloc>(
             child: IdConvertRomainMethodes(),
             bloc: IdConvertRomainBloc(),
           )
