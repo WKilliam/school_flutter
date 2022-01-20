@@ -68,7 +68,7 @@ class IdPercentMethodes extends StatelessWidget {
                         ),
             ),
                         TextField(
-                          
+
                           keyboardType: TextInputType.number,
                           textAlign: TextAlign.center,
                           onChanged: (number) {
