@@ -11,9 +11,6 @@ class ScaffoldCustum extends StatelessWidget{
 
   Map<int,String> path = {
     0 : '/home',
-    1 : '/convert_romain',
-    2 : '/percent',
-    3 : '/calculate_temperature'
   };
 
   @override
@@ -24,14 +21,11 @@ class ScaffoldCustum extends StatelessWidget{
         index: 0,
         height: 60.0,
         items: const <Widget>[
-          Icon(Icons.home, size: 15),
-          Icon(Icons.update, size: 15),
-          Icon(Icons.update, size: 15),
-          Icon(Icons.update, size: 15),
+          Icon(Icons.home, size: 35),
         ],
-        color: Colors.white,
-        buttonBackgroundColor: Colors.white,
-        backgroundColor: Colors.blueAccent,
+        color: Colors.black87,
+        buttonBackgroundColor: Colors.black38,
+        backgroundColor: Colors.white,
         animationCurve: Curves.easeInOut,
         animationDuration: const Duration(milliseconds: 600),
         onTap: (index) {

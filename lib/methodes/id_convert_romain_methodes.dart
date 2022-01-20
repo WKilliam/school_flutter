@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:school_flutter/blocs/bloc_provider.dart';
 import 'package:school_flutter/blocs/blocs/controller/id_convert_romain_bloc.dart';
-import 'package:school_flutter/ui/ScaffoldCustum.dart';
+import 'package:school_flutter/components/ScaffoldCustum.dart';
 
 class IdConvertRomainMethodes extends StatelessWidget {
   romainThousandth(int number) {

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:school_flutter/blocs/blocs/controller/percent_bloc.dart';
 import 'package:school_flutter/blocs/blocs/controller/utilitaires_controller_bloc.dart';
 import 'package:school_flutter/ui/home.dart';
 import 'package:school_flutter/blocs/bloc_provider.dart';
 import 'package:school_flutter/blocs/blocs/controller/id_convert_romain_bloc.dart';
 import 'package:school_flutter/methodes/id_convert_romain_methodes.dart';
+import 'package:school_flutter/ui/homeV2.dart';
+import 'package:school_flutter/ui/view_ui/percent/view.dart';
 
 import 'blocs/blocs/controller/id_convert_memories_bloc.dart';
 import 'blocs/blocs/controller/id_convert_temperature_bloc.dart';
@@ -24,35 +27,45 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: true,
         initialRoute: '/home',
+        theme: ThemeData(primarySwatch: Colors.teal, brightness: Brightness.dark),
         routes:<String, WidgetBuilder>{
           "/home": (BuildContext context) => BlocProvider<UtilitairesControllerBloc>(
-            child: Home(),
+            child: HomeV2(),
             bloc: UtilitairesControllerBloc(),
           ),
-          "/convert_romain": (BuildContext context) => BlocProvider<IdConvertRomainBloc>(
-            child: IdConvertRomainMethodes(),
-            bloc: IdConvertRomainBloc(),
+          "/percent": (BuildContext context) => BlocProvider<PercentBloc>(
+            child: PercentUi(),
+            bloc: PercentBloc(),
           ),
-          "/calculate_area": (BuildContext context) => BlocProvider<IdConvertRomainBloc>(
-            child: IdConvertRomainMethodes(),
-            bloc: IdConvertRomainBloc(),
-          ),
-          "/convert_memories": (BuildContext context) => BlocProvider<IdConvertMemoriesBloc>(
-            child: IdConvertMemoriesMethodes(),
-            bloc: IdConvertMemoriesBloc(),
-          ),
-          "/percent": (BuildContext context) => BlocProvider<IDPromotionsBloc>(
-            child: IdPercentMethodes(),
-            bloc: IDPromotionsBloc(),
-          ),
-          "/calculate_temperature": (BuildContext context) => BlocProvider<IdTemperatureBloc>(
-            child: IdTemperatureMethodes(),
-            bloc: IdTemperatureBloc(),
-          ),
-          "/date_friend": (BuildContext context) => BlocProvider<IdDateFriendBloc>(
-            child: IdDateFriendMethodes(),
-            bloc: IdDateFriendBloc(),
-          ),
+          // "/percent": (BuildContext context) => BlocProvider<IDPromotionsBloc>(
+          //   child: IdPercentMethodes(),
+          //   bloc: IDPromotionsBloc(),
+          // ),
+          // "/home": (BuildContext context) => BlocProvider<UtilitairesControllerBloc>(
+          //   child: Home(),
+          //   bloc: UtilitairesControllerBloc(),
+          // ),
+          // "/convert_romain": (BuildContext context) => BlocProvider<IdConvertRomainBloc>(
+          //   child: IdConvertRomainMethodes(),
+          //   bloc: IdConvertRomainBloc(),
+          // ),
+          // "/calculate_area": (BuildContext context) => BlocProvider<IdConvertRomainBloc>(
+          //   child: IdConvertRomainMethodes(),
+          //   bloc: IdConvertRomainBloc(),
+          // ),
+          // "/convert_memories": (BuildContext context) => BlocProvider<IdConvertMemoriesBloc>(
+          //   child: IdConvertMemoriesMethodes(),
+          //   bloc: IdConvertMemoriesBloc(),
+          // ),
+          //
+          // "/calculate_temperature": (BuildContext context) => BlocProvider<IdTemperatureBloc>(
+          //   child: IdTemperatureMethodes(),
+          //   bloc: IdTemperatureBloc(),
+          // ),
+          // "/date_friend": (BuildContext context) => BlocProvider<IdDateFriendBloc>(
+          //   child: IdDateFriendMethodes(),
+          //   bloc: IdDateFriendBloc(),
+          // ),
         }
     );
   }
