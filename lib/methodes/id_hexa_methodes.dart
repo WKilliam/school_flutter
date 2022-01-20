@@ -42,6 +42,7 @@ class DeciToHexa {
     return binaire = octet.toRadixString(8);
   }
 
+
 }
 
 

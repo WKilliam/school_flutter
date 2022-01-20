@@ -1,14 +1,231 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:intl/intl.dart';
+import 'package:flutter/material.dart';
+import 'package:school_flutter/blocs/bloc_provider.dart';
+import 'package:school_flutter/blocs/blocs/controller/id_date_friend_bloc.dart';
+import 'package:school_flutter/ui/ScaffoldCustum.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
-final datePicker1 = DateTime(2019, 02, 22);
-final datePicker2 = DateTime(2029, 02, 22);
-final differenceJour = datePicker2.difference(datePicker1).inDays;
-final differenceMinute = datePicker2.difference(datePicker1).inMinutes;
-final differenceHeure = datePicker2.difference(datePicker1).inHours;
+// final datePicker1 = DateTime(2019, 02, 22);
+// final datePicker2 = DateTime(2029, 02, 22);
+// final differenceJour = datePicker2.difference(datePicker1).inDays;
+// final differenceMinute = datePicker2.difference(datePicker1).inMinutes;
+// final differenceHeure = datePicker2.difference(datePicker1).inHours;
+//
+//
+// void main() {
+//   if (kDebugMode) {
+//     print(differenceHeure);
+//   }
+// }
 
+class IdDateFriendMethodes extends StatelessWidget {
+  Center center(String text) {
+    return Center(
+      child:
+          Text(text, style: const TextStyle(fontSize: 32, color: Colors.blue)),
+    );
+  }
 
-void main() {
-  if (kDebugMode) {
-    print(differenceHeure);
+  DateTime currentDate = DateTime.now();
+  TextEditingController dateinput = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    final bloc = BlocProvider.of<IdDateFriendBloc>(context);
+
+    return ScaffoldCustum(
+        child: StreamBuilder<Map<String, dynamic>>(
+      stream: bloc?.stream,
+      builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+        if (snapshot.data == null) {
+          return center("Snapshot est null");
+        } else if (snapshot.hasData) {
+          return Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/tool.jpg"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: Center(
+                child: Column(
+                  // mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.only(
+                          top: 0, left: 0, right: 0, bottom: 0),
+                      width: 300,
+                      height: 350,
+                      decoration: BoxDecoration(
+                          border:
+                              Border.all(width: 50, color: Colors.transparent),
+                          //color is transparent so that it does not blend with the actual color specified
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(30.0)),
+                          color: const Color.fromRGBO(148, 143, 143,
+                              0.8) // Specifies the background color and the opacity
+                          ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          TextField(
+                            controller: snapshot.data['ControllerStart'],
+                            decoration: const InputDecoration(
+                                icon: Icon(Icons.calendar_today),
+                                //icon of text field
+                                labelText: "Date Start" //label text of field
+                                ),
+                            readOnly: true,
+                            //set it true, so that user will not able to edit text
+                            onTap: () async {
+                              DateTime? pickedDate = await showDatePicker(
+                                  context: context,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime(2000),
+                                  //DateTime.now() - not to allow to choose before today.
+                                  lastDate: DateTime(2101));
+                              if(pickedDate != null ){
+                                String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
+                                bloc?.updateControllerText('ControllerStart', formattedDate);
+                                bloc?.update('Start', [pickedDate.day,pickedDate.month,pickedDate.year,pickedDate.hour,pickedDate.minute]);
+                              }else{
+                                print("Date is not selected");
+                              }
+                            },
+                          ),
+                          const SizedBox(height: 20,),
+                          const Text('test'),
+                          const SizedBox(height: 20,),
+                          TextField(
+                            controller: snapshot.data['ControllerEnd'],
+                            decoration: const InputDecoration(
+                                icon: Icon(Icons.calendar_today),
+                                //icon of text field
+                                labelText: "Date End" //label text of field
+                            ),
+                            readOnly: true,
+                            //set it true, so that user will not able to edit text
+                            onTap: () async {
+                              DateTime? pickedDate = await showDatePicker(
+                                  context: context,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime(2000),
+                                  //DateTime.now() - not to allow to choose before today.
+                                  lastDate: DateTime(2101));
+                              if(pickedDate != null ){
+                                String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
+                                bloc?.updateControllerText('ControllerEnd', formattedDate);
+                                bloc?.update('End', [pickedDate.day,pickedDate.month,pickedDate.year,pickedDate.hour,pickedDate.minute]);
+                              }else{
+                                print("Date is not selected");
+                              }
+                            },
+                          ),
+                          // BUtton ///// prévoir cas ou end ou start sont null button en disable tant que y'a pas les 2 valeur
+                          SizedBox(height: 20,),
+                          Text('resultat'),
+                          SizedBox(height: 20,),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ));
+          // return Stack(
+          //   children: [
+
+          //     Container(
+          //         width: 350,
+          //         height: 350,
+          //         child: Card(child: Center(child: Column(
+          //           children: [
+          //             Positioned(
+          //               left: 0,
+          //               top: 80,
+          //               right: 0,
+          //               bottom: 0,
+          //               child: SfDateRangePicker(
+          //                 onSelectionChanged: _onSelectionChanged,
+          //                 selectionMode: DateRangePickerSelectionMode.range,
+          //                 initialSelectedRange: PickerDateRange(
+          //                     DateTime.now().subtract(const Duration(days: 4)),
+          //                     DateTime.now().add(const Duration(days: 3))),
+          //               ),
+          //             )
+          //           ],
+          //         )
+          //         )
+          //         )
+          //     ),
+          //     Container(
+          //         width: 350,
+          //         height: 180,
+          //         child: Card(child: Center(child: Column(
+          //           children: [
+          //             Text('${snapshot.data['Friend']}')
+          //           ],
+          //         )
+          //         )
+          //         )
+          //     )
+          //   ],
+          // );
+          // Container(
+          //     decoration: const BoxDecoration(
+          //       image: DecorationImage(
+          //         image: AssetImage("assets/images/tool.jpg"),
+          //         fit: BoxFit.cover,
+          //       ),
+          //     ),
+          //     child: Center(
+          //         child: Column(
+          //           children: [
+          //
+          //           ],
+          //         )
+          //     )
+          // );
+        } else {
+          return center("Snapshot n'a pas de données");
+        }
+      },
+    )
+        // Stack(
+        //   children: <Widget>[
+        //     Positioned(
+        //       left: 0,
+        //       right: 0,
+        //       top: 0,
+        //       height: 80,
+        //       child: Column(
+        //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //         mainAxisSize: MainAxisSize.min,
+        //         crossAxisAlignment: CrossAxisAlignment.start,
+        //         children: const <Widget>[
+        //           Text('Selected date: '),
+        //           Text('Selected date count:'),
+        //           Text('Selected range:'),
+        //           Text('Selected ranges count:')
+        //         ],
+        //       ),
+        //     ),
+        //     Positioned(
+        //       left: 0,
+        //       top: 80,
+        //       right: 0,
+        //       bottom: 0,
+        //       child: SfDateRangePicker(
+        //         onSelectionChanged: _onSelectionChanged,
+        //         selectionMode: DateRangePickerSelectionMode.range,
+        //         initialSelectedRange: PickerDateRange(
+        //             DateTime.now().subtract(const Duration(days: 4)),
+        //             DateTime.now().add(const Duration(days: 3))),
+        //       ),
+        //     )
+        //   ],
+        // )
+        );
   }
 }

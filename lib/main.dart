@@ -7,8 +7,10 @@ import 'package:school_flutter/methodes/id_convert_romain_methodes.dart';
 
 import 'blocs/blocs/controller/id_convert_memories_bloc.dart';
 import 'blocs/blocs/controller/id_convert_temperature_bloc.dart';
+import 'blocs/blocs/controller/id_date_friend_bloc.dart';
 import 'blocs/blocs/controller/id_promotions_bloc.dart';
 import 'methodes/id_convert_memories_methodes.dart';
+import 'methodes/id_date_friend_methodes.dart';
 import 'methodes/id_percent_methodes.dart';
 import 'methodes/id_temperature_methodes.dart';
 
@@ -46,6 +48,10 @@ class MyApp extends StatelessWidget {
           "/calculate_temperature": (BuildContext context) => BlocProvider<IdTemperatureBloc>(
             child: IdTemperatureMethodes(),
             bloc: IdTemperatureBloc(),
+          ),
+          "/date_friend": (BuildContext context) => BlocProvider<IdDateFriendBloc>(
+            child: IdDateFriendMethodes(),
+            bloc: IdDateFriendBloc(),
           ),
         }
     );
