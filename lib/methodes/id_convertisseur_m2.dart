@@ -4,6 +4,10 @@
 
 
 
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:school_flutter/blocs/bloc_provider.dart';
+
 class ConvertirM2 {
 
   m2_to_km2(double longeur,double largeur){
@@ -66,4 +70,60 @@ class ConvertirM2 {
   Cm2_to_m2(double longeur,double largeur){
     return  (longeur*largeur*0.00010000008840439998908);
   }
+  Center center(String text) {
+    return Center(
+      child:
+      Text(text, style: const TextStyle(fontSize: 32, color: Colors.blue)),
+    );
+  }
+  /*Widget build(BuildContext context) {
+    //final bloc = BlocProvider.of<>(context);
+    return Scaffold(
+        body: StreamBuilder<String>(
+          stream: bloc?.stream,
+          builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+            if (snapshot.data == null) {
+              return center("Snapshot est null");
+            } else if (snapshot.hasData) {
+              return Container(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/images/tool.jpg"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        TextField(
+                          keyboardType: TextInputType.number,
+                          textAlign: TextAlign.center,
+                          onChanged: (number) {
+                            if(number == ""){
+                              bloc?.update("");
+                            }else{
+                              String romainConvert = toRomainConvert(int.parse(number));
+                              bloc?.update(romainConvert);
+                            }
+                          },
+                          decoration: const InputDecoration(
+                            filled: true,
+                            contentPadding: EdgeInsets.only(
+                                bottom: 5.0, left: 10.0, right: 10.0),
+                          ),
+                        ),
+                        Text('${snapshot.data}')
+                      ],
+                    ),
+                  )
+              );
+            } else {
+              return center("Snapshot n'a pas de données");
+            }
+          },
+        ));
+  }
+}
+*/
+   
 }
