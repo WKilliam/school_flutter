@@ -246,9 +246,12 @@ class IdConvertRomainMethodes extends StatelessWidget {
                       keyboardType: TextInputType.number,
                       textAlign: TextAlign.center,
                       onChanged: (number) {
-                        String romainConvert =
-                            toRomainConvert(int.parse(number));
-                        bloc?.update(romainConvert);
+                        if(number == ""){
+                          bloc?.update("");
+                        }else{
+                          String romainConvert = toRomainConvert(int.parse(number));
+                          bloc?.update(romainConvert);
+                        }
                       },
                       decoration: const InputDecoration(
                         filled: true,

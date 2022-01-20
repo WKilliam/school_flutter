@@ -50,7 +50,9 @@ class Home extends StatelessWidget {
                   return center("Snapshot n'a pas de données");
                 }
               },
-            )));
+            )
+        )
+    );
   }
 
 // @override
