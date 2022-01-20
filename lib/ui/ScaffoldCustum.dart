@@ -10,7 +10,10 @@ class ScaffoldCustum extends StatelessWidget{
   ScaffoldCustum({required this.child});
 
   Map<int,String> path = {
-    0 : '/percent'
+    0 : '/home',
+    1 : '/convert_romain',
+    2 : '/percent',
+    3 : '/calculate_temperature'
   };
 
   @override
@@ -21,6 +24,9 @@ class ScaffoldCustum extends StatelessWidget{
         index: 0,
         height: 60.0,
         items: const <Widget>[
+          Icon(Icons.home, size: 15),
+          Icon(Icons.update, size: 15),
+          Icon(Icons.update, size: 15),
           Icon(Icons.update, size: 15),
         ],
         color: Colors.white,
@@ -34,7 +40,6 @@ class ScaffoldCustum extends StatelessWidget{
           }else{
             Navigator.pushNamed(context, path[index].toString());
           }
-
         },
         letIndexChange: (index) => true,
       ),

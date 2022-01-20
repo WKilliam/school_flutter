@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:school_flutter/blocs/bloc_provider.dart';
 import 'package:school_flutter/blocs/blocs/controller/id_convert_temperature_bloc.dart';
+import 'package:school_flutter/ui/ScaffoldCustum.dart';
 
 class IdTemperatureMethodes extends StatelessWidget{
 
@@ -88,8 +89,8 @@ class IdTemperatureMethodes extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<IdTemperatureBloc>(context);
-    return Scaffold(
-        body: StreamBuilder<Map<String, dynamic>>(
+    return ScaffoldCustum(
+          child: StreamBuilder<Map<String, dynamic>>(
           stream: bloc?.stream,
           builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
             if (snapshot.data == null) {

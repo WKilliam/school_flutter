@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:school_flutter/blocs/bloc_provider.dart';
 import 'package:school_flutter/blocs/blocs/controller/id_convert_romain_bloc.dart';
+import 'package:school_flutter/ui/ScaffoldCustum.dart';
 
 class IdConvertRomainMethodes extends StatelessWidget {
   romainThousandth(int number) {
@@ -225,8 +226,8 @@ class IdConvertRomainMethodes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<IdConvertRomainBloc>(context);
-    return Scaffold(
-        body: StreamBuilder<String>(
+    return ScaffoldCustum(
+        child: StreamBuilder<String>(
       stream: bloc?.stream,
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         if (snapshot.data == null) {
