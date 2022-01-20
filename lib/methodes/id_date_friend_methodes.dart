@@ -7,20 +7,19 @@ import 'package:school_flutter/blocs/blocs/controller/id_date_friend_bloc.dart';
 import 'package:school_flutter/ui/ScaffoldCustum.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
-// final datePicker1 = DateTime(2019, 02, 22);
-// final datePicker2 = DateTime(2029, 02, 22);
-// final differenceJour = datePicker2.difference(datePicker1).inDays;
-// final differenceMinute = datePicker2.difference(datePicker1).inMinutes;
-// final differenceHeure = datePicker2.difference(datePicker1).inHours;
-//
-//
-// void main() {
-//   if (kDebugMode) {
-//     print(differenceHeure);
-//   }
-// }
-
 class IdDateFriendMethodes extends StatelessWidget {
+  myFriend(int day1, int mouth1, int year1, int hour1, int minute1, int day2, int mouth2, int year2, int hour2, int minute2) {
+    var picker1 = DateTime(year1, mouth1, day1, hour1, minute1);
+    var picker2 = DateTime(year2, mouth2, day2, hour2, minute2);
+    var differenceJour = picker2.difference(picker1).inDays;
+    var differenceHeure = picker2.difference(picker1).inHours;
+    var differenceMinute = picker2.difference(picker1).inMinutes;
+    if (picker1 >= picker2) {
+      return ('${differenceJour * -1}, ${differenceHeure * -1}, ${differenceMinute * -1},');
+    } else {
+      return ('${differenceJour * 1}, ${differenceHeure * 1}, ${differenceMinute * 1}');
+    }
+  }
   Center center(String text) {
     return Center(
       child:
