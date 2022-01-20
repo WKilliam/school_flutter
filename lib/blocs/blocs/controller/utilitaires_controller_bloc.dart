@@ -14,6 +14,7 @@ class UtilitairesControllerBloc extends Bloc {
     UtilitaireEnum.id_convert_romain : UtilitairesDTO('/convert_romain','Convert romain',Colors.red,'Convert romain'),
     UtilitaireEnum.id_convert_memories : UtilitairesDTO('/convert_memories','Convert Memories',Colors.brown,'Convert romain'),
     UtilitaireEnum.id_calculate_area : UtilitairesDTO('/calculate_area',"convert area",Colors.purple,'calculator fonction'),
+    UtilitaireEnum.id_calculate_temperature : UtilitairesDTO('/calculate_temperature',"Calculate temperature",Colors.deepOrange,'Calculate Temperature'),
   };
 
   final _streamController = StreamController<Map<UtilitaireEnum,UtilitairesDTO>>();

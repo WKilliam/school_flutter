@@ -1,9 +1,3 @@
-
-
-
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:school_flutter/blocs/bloc_provider.dart';

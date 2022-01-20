@@ -4,6 +4,7 @@ import 'package:school_flutter/blocs/blocs/controller/utilitaires_controller_blo
 import 'package:school_flutter/blocs/blocs/dto/utilitaires_dto.dart';
 import 'package:school_flutter/blocs/blocs/enum/utilitaires_enum.dart';
 import 'package:school_flutter/components/GridButton.dart';
+import 'package:school_flutter/ui/ScaffoldCustum.dart';
 
 class Home extends StatelessWidget {
   Center center(String text) {
@@ -16,8 +17,8 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<UtilitairesControllerBloc>(context);
-    return Scaffold(
-        body:
+    return ScaffoldCustum(
+        child :
         Container(
             decoration: const BoxDecoration(
               image:  DecorationImage(

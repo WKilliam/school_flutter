@@ -346,7 +346,8 @@ class IdConvertMemoriesMethodes extends StatelessWidget {
             return center("Snapshot n'a pas de données");
           }
         },
-      ));
+      )
+      );
     // return Scaffold(
     //     body:
 
