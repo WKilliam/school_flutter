@@ -13,7 +13,8 @@ class UtilitairesControllerBloc extends Bloc {
     UtilitaireEnum.id_percent : UtilitairesDTO('/percent','Percent',Colors.blue,'Calculator fonction'),
     UtilitaireEnum.id_birthday : UtilitairesDTO('/Mybirthday','MyBirthday',Colors.yellow,'Calculator fonction'),
     UtilitaireEnum.id_calculate_temperature: UtilitairesDTO('/calculate_temperature','Calculate of temperature',Colors.red,'Calculator fonction'),
-    UtilitaireEnum.id_convert_distance : UtilitairesDTO('/convert_distance','Convert distance',Colors.green,'Calculator fonction')
+    UtilitaireEnum.id_convert_distance : UtilitairesDTO('/convert_distance','Convert distance',Colors.green,'Calculator fonction'),
+    UtilitaireEnum.id_calculate_area : UtilitairesDTO('/calculate_area',"convert area",Colors.purple,'calculator fonction'),
   };
 
   final _streamController = StreamController<Map<UtilitaireEnum,UtilitairesDTO>>();
