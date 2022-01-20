@@ -1,8 +1,8 @@
-
 import 'dart:async';
+
 import 'package:school_flutter/blocs/bloc.dart';
 
-class IdConvertRomainBloc extends Bloc {
+class IdConvertMemoriesBloc extends Bloc {
 
   String _value = "";
 
@@ -10,7 +10,7 @@ class IdConvertRomainBloc extends Bloc {
   Sink<String> get sink => _streamController.sink;
   Stream<String> get stream => _streamController.stream;
 
-  IdConvertRomainBloc(){
+  IdConvertMemoriesBloc(){
     sink.add(_value);
   }
 

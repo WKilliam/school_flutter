@@ -5,6 +5,9 @@ import 'package:school_flutter/blocs/bloc_provider.dart';
 import 'package:school_flutter/blocs/blocs/controller/id_convert_romain_bloc.dart';
 import 'package:school_flutter/methodes/id_convert_romain_methodes.dart';
 
+import 'blocs/blocs/controller/id_convert_memories_bloc.dart';
+import 'methodes/id_convert_memories_methodes.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -23,6 +26,14 @@ class MyApp extends StatelessWidget {
           "/convert_romain": (BuildContext context) => BlocProvider<IdConvertRomainBloc>(
             child: IdConvertRomainMethodes(),
             bloc: IdConvertRomainBloc(),
+          ),
+          "/calculate_area": (BuildContext context) => BlocProvider<IdConvertRomainBloc>(
+            child: IdConvertRomainMethodes(),
+            bloc: IdConvertRomainBloc(),
+          ),
+          "/convert_memories": (BuildContext context) => BlocProvider<IdConvertMemoriesBloc>(
+            child: IdConvertMemoriesMethodes(),
+            bloc: IdConvertMemoriesBloc(),
           )
         }
     );

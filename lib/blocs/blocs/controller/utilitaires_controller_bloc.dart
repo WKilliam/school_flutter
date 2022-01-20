@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:school_flutter/blocs/blocs/dto/utilitaires_dto.dart';
 import 'package:school_flutter/blocs/blocs/enum/utilitaires_enum.dart';
 
-import '../../bloc.dart';
+import 'package:school_flutter/blocs/bloc.dart';
 
 class UtilitairesControllerBloc extends Bloc {
 
@@ -12,6 +12,8 @@ class UtilitairesControllerBloc extends Bloc {
     // TO DO : Add New Fonctionalité
     UtilitaireEnum.id_percent : UtilitairesDTO('/percent','Percent',Colors.blue,'Calculator fonction'),
     UtilitaireEnum.id_convert_romain : UtilitairesDTO('/convert_romain','Convert romain',Colors.red,'Convert romain'),
+    UtilitaireEnum.id_convert_memories : UtilitairesDTO('/convert_memories','Convert Memories',Colors.brown,'Convert romain'),
+    UtilitaireEnum.id_calculate_area : UtilitairesDTO('/calculate_area',"convert area",Colors.purple,'calculator fonction'),
   };
 
   final _streamController = StreamController<Map<UtilitaireEnum,UtilitairesDTO>>();
