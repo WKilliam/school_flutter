@@ -211,7 +211,7 @@ class ConvertirM2Ui extends StatelessWidget {
                                       height: 50.0,
                                       width: 250,
                                       child:
-                                      Text('${snapshot.data["Resultat1"]}  ${snapshot.data["M"]}'), // affiche le resultat
+                                         CenterText('${snapshot.data["Resultat1"]}  ${snapshot.data["M"]}'), // affiche le resultat
                                       decoration: const BoxDecoration(
                                         borderRadius:
                                         BorderRadius.all(Radius.circular(20)),
@@ -219,7 +219,7 @@ class ConvertirM2Ui extends StatelessWidget {
                                         boxShadow: [
                                           BoxShadow(
                                             color: Colors.black26,
-                                            
+
                                             blurRadius: 2.0,
                                             spreadRadius: 0.0,
                                             offset: Offset(2.0,
