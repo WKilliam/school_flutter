@@ -56,41 +56,4 @@ class Home extends StatelessWidget {
         )
     );
   }
-
-// @override
-// Widget build(BuildContext context) {
-//   final bloc = BlocProvider.of<UtilitairesControllerBloc>(context);
-//   return Scaffold(
-//       body: StreamBuilder<Map<UtilitaireEnum, UtilitairesDTO>>(
-//           stream: bloc?.stream,
-//           builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-//             if (snapshot.data == null) {
-//               return center("Snapshot est null");
-//             } else if (snapshot.hasData) {
-//               return Container(
-//                 padding: const EdgeInsets.all(10),
-//                 child: GridView.count(
-//                   crossAxisCount: 2,
-//                   crossAxisSpacing: 10,
-//                   mainAxisSpacing: 10,
-//                   padding: const EdgeInsets.all(10),
-//                   children: const <Widget>[
-//                     GridButton(Colors.yellow,key: Key('test'),),
-//                     GridButton(Colors.yellow,key: Key('test'),),
-//                   ],
-//                 ),
-//               );
-//               // return GridView.count(
-//               //     primary: false,
-//               //     padding: const EdgeInsets.all(20),
-//               //     crossAxisSpacing: 10,
-//               //     mainAxisSpacing: 10,
-//               //     crossAxisCount: 2,
-//               //     children: allData(snapshot, context));
-//             } else {
-//               return center("Snapshot n'a pas de données");
-//             }
-//           }));
-// }
-
 }

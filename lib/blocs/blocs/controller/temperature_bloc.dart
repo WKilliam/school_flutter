@@ -1,8 +1,7 @@
 import 'dart:async';
+import '../../bloc.dart';
 
-import 'package:school_flutter/blocs/bloc.dart';
-
-class IdTemperatureBloc extends Bloc{
+class TemperatureBloc extends Bloc{
   final Map<String,dynamic> _value = {
     "TextField" : null,
     "Result": 0.0,
@@ -15,7 +14,7 @@ class IdTemperatureBloc extends Bloc{
   Sink<Map<String,dynamic>> get sink => _streamController.sink;
   Stream<Map<String,dynamic>> get stream => _streamController.stream;
 
-  IdTemperatureBloc(){
+  TemperatureBloc(){
     sink.add(_value);
   }
 

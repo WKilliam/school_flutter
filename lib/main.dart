@@ -4,10 +4,15 @@ import 'package:school_flutter/blocs/blocs/controller/percent_bloc.dart';
 import 'package:school_flutter/blocs/blocs/controller/utilitaires_controller_bloc.dart';
 import 'package:school_flutter/blocs/bloc_provider.dart';
 import 'package:school_flutter/ui/homeV2.dart';
+import 'package:school_flutter/ui/view_ui/birthday/methodes.dart';
+import 'package:school_flutter/ui/view_ui/birthday/view.dart';
 import 'package:school_flutter/ui/view_ui/memories/view.dart';
 import 'package:school_flutter/ui/view_ui/percent/view.dart';
 import 'package:school_flutter/ui/view_ui/romain/view.dart';
+import 'package:school_flutter/ui/view_ui/temperature/view.dart';
 
+import 'blocs/blocs/controller/birthday_bloc.dart';
+import 'blocs/blocs/controller/temperature_bloc.dart';
 import 'blocs/blocs/controller/romain_bloc.dart';
 void main() {
   runApp(MyApp());
@@ -37,35 +42,14 @@ class MyApp extends StatelessWidget {
             child: MemoriesUi(),
             bloc: MemoriesBloc(),
           ),
-          // "/percent": (BuildContext context) => BlocProvider<IDPromotionsBloc>(
-          //   child: IdPercentMethodes(),
-          //   bloc: IDPromotionsBloc(),
-          // ),
-          // "/home": (BuildContext context) => BlocProvider<UtilitairesControllerBloc>(
-          //   child: Home(),
-          //   bloc: UtilitairesControllerBloc(),
-          // ),
-          // "/convert_romain": (BuildContext context) => BlocProvider<IdConvertRomainBloc>(
-          //   child: IdConvertRomainMethodes(),
-          //   bloc: IdConvertRomainBloc(),
-          // ),
-          // "/calculate_area": (BuildContext context) => BlocProvider<IdConvertRomainBloc>(
-          //   child: IdConvertRomainMethodes(),
-          //   bloc: IdConvertRomainBloc(),
-          // ),
-          // "/convert_memories": (BuildContext context) => BlocProvider<IdConvertMemoriesBloc>(
-          //   child: IdConvertMemoriesMethodes(),
-          //   bloc: IdConvertMemoriesBloc(),
-          // ),
-          //
-          // "/calculate_temperature": (BuildContext context) => BlocProvider<IdTemperatureBloc>(
-          //   child: IdTemperatureMethodes(),
-          //   bloc: IdTemperatureBloc(),
-          // ),
-          // "/date_friend": (BuildContext context) => BlocProvider<IdDateFriendBloc>(
-          //   child: IdDateFriendMethodes(),
-          //   bloc: IdDateFriendBloc(),
-          // ),
+          "/calculate_temperature": (BuildContext context) => BlocProvider<TemperatureBloc>(
+            child: TemperatureUi(),
+            bloc: TemperatureBloc(),
+          ),
+          "/birthday": (BuildContext context) => BlocProvider<BirthdayBloc>(
+            child: BirthdayUi(),
+            bloc: BirthdayBloc(),
+          ),
         }
     );
   }

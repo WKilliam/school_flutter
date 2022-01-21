@@ -6,7 +6,6 @@ import 'package:school_flutter/blocs/bloc_provider.dart';
 import 'package:school_flutter/blocs/blocs/controller/percent_bloc.dart';
 import 'package:school_flutter/components/CenterText.dart';
 import 'package:school_flutter/components/ContainerCustum.dart';
-import 'package:school_flutter/components/StreamBuilderBody.dart';
 import 'package:school_flutter/components/ScaffoldCustum.dart';
 import 'package:school_flutter/components/TextFieldCustum.dart';
 import 'package:school_flutter/ui/view_ui/percent/methodes.dart';
