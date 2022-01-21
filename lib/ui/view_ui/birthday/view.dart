@@ -10,6 +10,7 @@ import 'package:school_flutter/components/ContainerCustum.dart';
 import 'package:school_flutter/components/ScaffoldCustum.dart';
 import 'package:school_flutter/ui/view_ui/birthday/methodes.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter/animation.dart';
 
 class BirthdayUi extends StatelessWidget{
   @override

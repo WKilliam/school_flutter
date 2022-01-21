@@ -6,12 +6,14 @@ import 'package:school_flutter/blocs/bloc_provider.dart';
 import 'package:school_flutter/ui/homeV2.dart';
 import 'package:school_flutter/ui/view_ui/birthday/methodes.dart';
 import 'package:school_flutter/ui/view_ui/birthday/view.dart';
+import 'package:school_flutter/ui/view_ui/friend/view.dart';
 import 'package:school_flutter/ui/view_ui/memories/view.dart';
 import 'package:school_flutter/ui/view_ui/percent/view.dart';
 import 'package:school_flutter/ui/view_ui/romain/view.dart';
 import 'package:school_flutter/ui/view_ui/temperature/view.dart';
 
 import 'blocs/blocs/controller/birthday_bloc.dart';
+import 'blocs/blocs/controller/friend_bloc.dart';
 import 'blocs/blocs/controller/temperature_bloc.dart';
 import 'blocs/blocs/controller/romain_bloc.dart';
 void main() {
@@ -49,6 +51,10 @@ class MyApp extends StatelessWidget {
           "/birthday": (BuildContext context) => BlocProvider<BirthdayBloc>(
             child: BirthdayUi(),
             bloc: BirthdayBloc(),
+          ),
+          "/friend": (BuildContext context) => BlocProvider<FriendBloc>(
+            child: FriendUi(),
+            bloc: FriendBloc(),
           ),
         }
     );

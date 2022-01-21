@@ -1,7 +1,5 @@
 import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
-
 import '../../bloc.dart';
 
 class BirthdayBloc extends Bloc {

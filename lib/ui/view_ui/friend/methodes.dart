@@ -4,12 +4,12 @@ class FriendMethodes {
     var picker1 = DateTime(year1, mouth1, day1, hour1, minute1);
     var picker2 = DateTime(year2, mouth2, day2, hour2, minute2);
     var differenceJour = picker2.difference(picker1).inDays;
-    var differenceHeure = picker2.difference(picker1).inHours;
-    var differenceMinute = picker2.difference(picker1).inMinutes;
+    var differenceMois = picker2.difference(picker1).inDays ~/ 30;
+    var differenceAnnee = picker2.difference(picker1).inDays ~/365;
     if (picker1.isBefore(picker2)) {
-      return ('${differenceJour * -1}, ${differenceHeure * -1}, ${differenceMinute * -1},');
+      return ('${differenceJour * -1}, ${differenceMois * -1}, ${differenceAnnee * -1},');
     } else {
-      return ('${differenceJour * 1}, ${differenceHeure * 1}, ${differenceMinute * 1}');
+      return ('${differenceJour * 1}, ${differenceMois * 1}, ${differenceAnnee * 1}');
     }
   }
 }
