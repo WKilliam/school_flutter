@@ -23,8 +23,7 @@ Decimal(double decimal){
     }
   }
 
-  convertdecimaltohexadecimal(double hexa_value, double decimal_value,
-      double i) {
+  convertdecimaltohexadecimal(double hexa_value, double decimal_value, double i) {
     List<int> myList = [10, 11, 12, 13, 14, 15];
     myList[10] = 'A' as int;
     myList[11] = 'B' as int;
