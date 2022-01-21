@@ -181,6 +181,7 @@ class PercentUi extends StatelessWidget {
                       },
                       // keyboardType:,
                       keyboardType: TextInputType.number,
+                      enabled: false,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                       decoration: InputDecoration(
                         prefixIcon: const Icon(
@@ -224,6 +225,7 @@ class PercentUi extends StatelessWidget {
                       },
                       // keyboardType:,
                       keyboardType: TextInputType.number,
+                      enabled: false,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                       decoration: InputDecoration(
                         prefixIcon: const Icon(

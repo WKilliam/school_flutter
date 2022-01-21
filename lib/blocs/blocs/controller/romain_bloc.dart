@@ -1,8 +1,8 @@
-
 import 'dart:async';
-import 'package:school_flutter/blocs/bloc.dart';
 
-class IdConvertRomainBloc extends Bloc {
+import '../../bloc.dart';
+
+class RomainBloc extends Bloc {
 
   String _value = "";
 
@@ -10,11 +10,9 @@ class IdConvertRomainBloc extends Bloc {
   Sink<String> get sink => _streamController.sink;
   Stream<String> get stream => _streamController.stream;
 
-  IdConvertRomainBloc(){
+  RomainBloc(){
     sink.add(_value);
   }
-
-  String get value => _value;
 
   void update(String inputText) {
     _value = inputText;

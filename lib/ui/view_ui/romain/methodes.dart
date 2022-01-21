@@ -1,19 +1,11 @@
-// class IdConvertRomainMethodes {
+class RomainMethodes {
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:school_flutter/blocs/bloc_provider.dart';
-import 'package:school_flutter/blocs/blocs/controller/id_convert_romain_bloc.dart';
-import 'package:school_flutter/components/ScaffoldCustum.dart';
-
-class IdConvertRomainMethodes extends StatelessWidget {
-  romainThousandth(int number) {
+  static romainThousandth(int number) {
     var mapThousandth = <int, String>{1000: "M", 2000: "MM", 3000: "MMM"};
     return mapThousandth[number];
   }
 
-  romainHundred(int number) {
+  static romainHundred(int number) {
     var mapHundred = <int, String>{
       900: "CM",
       800: "DCCC",
@@ -28,7 +20,7 @@ class IdConvertRomainMethodes extends StatelessWidget {
     return mapHundred[number];
   }
 
-  romainTen(int number) {
+  static romainTen(int number) {
     var mapTen = <int, String>{
       90: "XC",
       80: "LXXX",
@@ -43,7 +35,7 @@ class IdConvertRomainMethodes extends StatelessWidget {
     return mapTen[number];
   }
 
-  romainSingle(int number) {
+  static romainSingle(int number) {
     var mapSingle = <int, String>{
       9: "IX",
       8: "VIII",
@@ -58,24 +50,24 @@ class IdConvertRomainMethodes extends StatelessWidget {
     return mapSingle[number];
   }
 
-  convertIntToString(String number, int multiplicator) {
+  static convertIntToString(String number, int multiplicator) {
     return int.parse(number) * multiplicator;
   }
 
-  toRomainConvert(int number) {
+  static toRomainConvert(int number) {
     var split = number.toString().split('');
 
     String finalRomain = "";
     if (number <= 3999) {
       switch (split.length) {
         case 4:
-          // test : 1 1 1 1
+        // test : 1 1 1 1
           if (convertIntToString(split[0], 1000) != 0 &&
               convertIntToString(split[1], 100) != 0 &&
               convertIntToString(split[2], 10) != 0 &&
               convertIntToString(split[3], 1) != 0) {
             var thousandth =
-                romainThousandth(convertIntToString(split[0], 1000));
+            romainThousandth(convertIntToString(split[0], 1000));
             var hundred = romainHundred(convertIntToString(split[1], 100));
             var ten = romainTen(convertIntToString(split[2], 10));
             var single = romainSingle(convertIntToString(split[3], 1));
@@ -88,7 +80,7 @@ class IdConvertRomainMethodes extends StatelessWidget {
               convertIntToString(split[2], 10) != 0 &&
               convertIntToString(split[3], 1) != 0) {
             var thousandth =
-                romainThousandth(convertIntToString(split[0], 1000));
+            romainThousandth(convertIntToString(split[0], 1000));
             var ten = romainTen(convertIntToString(split[2], 10));
             var single = romainSingle(convertIntToString(split[3], 1));
             finalRomain = '$thousandth$ten$single';
@@ -100,7 +92,7 @@ class IdConvertRomainMethodes extends StatelessWidget {
               convertIntToString(split[2], 10) == 0 &&
               convertIntToString(split[3], 1) != 0) {
             var thousandth =
-                romainThousandth(convertIntToString(split[0], 1000));
+            romainThousandth(convertIntToString(split[0], 1000));
             var single = romainSingle(convertIntToString(split[3], 1));
             finalRomain = '$thousandth$single';
             return finalRomain;
@@ -111,7 +103,7 @@ class IdConvertRomainMethodes extends StatelessWidget {
               convertIntToString(split[2], 10) == 0 &&
               convertIntToString(split[3], 1) == 0) {
             var thousandth =
-                romainThousandth(convertIntToString(split[0], 1000));
+            romainThousandth(convertIntToString(split[0], 1000));
             finalRomain = '$thousandth';
             return finalRomain;
           }
@@ -121,7 +113,7 @@ class IdConvertRomainMethodes extends StatelessWidget {
               convertIntToString(split[2], 10) != 0 &&
               convertIntToString(split[3], 1) == 0) {
             var thousandth =
-                romainThousandth(convertIntToString(split[0], 1000));
+            romainThousandth(convertIntToString(split[0], 1000));
             var ten = romainTen(convertIntToString(split[2], 10));
             finalRomain = '$thousandth$ten';
             return finalRomain;
@@ -132,7 +124,7 @@ class IdConvertRomainMethodes extends StatelessWidget {
               convertIntToString(split[2], 10) == 0 &&
               convertIntToString(split[3], 1) == 0) {
             var thousandth =
-                romainThousandth(convertIntToString(split[0], 1000));
+            romainThousandth(convertIntToString(split[0], 1000));
             var hundred = romainHundred(convertIntToString(split[1], 100));
             finalRomain = '$thousandth$hundred';
             return finalRomain;
@@ -143,7 +135,7 @@ class IdConvertRomainMethodes extends StatelessWidget {
               convertIntToString(split[2], 10) != 0 &&
               convertIntToString(split[3], 1) == 0) {
             var thousandth =
-                romainThousandth(convertIntToString(split[0], 1000));
+            romainThousandth(convertIntToString(split[0], 1000));
             var hundred = romainHundred(convertIntToString(split[1], 100));
             var ten = romainTen(convertIntToString(split[2], 10));
             finalRomain = '$thousandth$hundred$ten';
@@ -154,7 +146,7 @@ class IdConvertRomainMethodes extends StatelessWidget {
               convertIntToString(split[2], 10) == 0 &&
               convertIntToString(split[3], 1) != 0) {
             var thousandth =
-                romainThousandth(convertIntToString(split[0], 1000));
+            romainThousandth(convertIntToString(split[0], 1000));
             var hundred = romainHundred(convertIntToString(split[1], 100));
             var single = romainSingle(convertIntToString(split[3], 1));
             finalRomain = '$thousandth$hundred$single';
@@ -214,78 +206,5 @@ class IdConvertRomainMethodes extends StatelessWidget {
     } else {
       return "limit exceeded";
     }
-  }
-
-  Center center(String text) {
-    return Center(
-      child:
-          Text(text, style: const TextStyle(fontSize: 32, color: Colors.blue)),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final bloc = BlocProvider.of<IdConvertRomainBloc>(context);
-    return ScaffoldCustum(
-        child: StreamBuilder<String>(
-      stream: bloc?.stream,
-      builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-        if (snapshot.data == null) {
-          return center("Snapshot est null");
-        } else if (snapshot.hasData) {
-          return Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/tool.jpg"),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: Center(
-              child:Container(
-                width: 350,
-                height: 250,
-                child: Card(
-                  child:  Center(
-                    child: Column(
-                        children: [
-                          const SizedBox(height: 50,),
-                          SizedBox(
-                            width: 150,
-                            height: 50,
-                            child: TextField(
-                              keyboardType: TextInputType.number,
-                              textAlign: TextAlign.center,
-                              onChanged: (number) {
-                                if(number == ""){
-                                  bloc?.update("");
-                                }else{
-                                  String romainConvert = toRomainConvert(int.parse(number));
-                                  bloc?.update(romainConvert);
-                                }
-                              },
-                            ),
-                          ),
-                          const SizedBox(height: 50,),
-                          Text('Convertion romain : ${snapshot.data}')
-                        ],
-                      ),
-                    ),
-                  ),
-                decoration: const BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black,
-                      blurRadius: 20.0,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          );
-        } else {
-          return center("Snapshot n'a pas de données");
-        }
-      },
-    ));
   }
 }

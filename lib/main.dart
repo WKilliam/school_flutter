@@ -1,22 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:school_flutter/blocs/blocs/controller/memories_bloc.dart';
 import 'package:school_flutter/blocs/blocs/controller/percent_bloc.dart';
 import 'package:school_flutter/blocs/blocs/controller/utilitaires_controller_bloc.dart';
-import 'package:school_flutter/ui/home.dart';
 import 'package:school_flutter/blocs/bloc_provider.dart';
-import 'package:school_flutter/blocs/blocs/controller/id_convert_romain_bloc.dart';
-import 'package:school_flutter/methodes/id_convert_romain_methodes.dart';
 import 'package:school_flutter/ui/homeV2.dart';
+import 'package:school_flutter/ui/view_ui/memories/view.dart';
 import 'package:school_flutter/ui/view_ui/percent/view.dart';
+import 'package:school_flutter/ui/view_ui/romain/view.dart';
 
-import 'blocs/blocs/controller/id_convert_memories_bloc.dart';
-import 'blocs/blocs/controller/id_convert_temperature_bloc.dart';
-import 'blocs/blocs/controller/id_date_friend_bloc.dart';
-import 'blocs/blocs/controller/id_promotions_bloc.dart';
-import 'methodes/id_convert_memories_methodes.dart';
-import 'methodes/id_date_friend_methodes.dart';
-import 'methodes/id_percent_methodes.dart';
-import 'methodes/id_temperature_methodes.dart';
-
+import 'blocs/blocs/controller/romain_bloc.dart';
 void main() {
   runApp(MyApp());
 }
@@ -36,6 +28,14 @@ class MyApp extends StatelessWidget {
           "/percent": (BuildContext context) => BlocProvider<PercentBloc>(
             child: PercentUi(),
             bloc: PercentBloc(),
+          ),
+          "/convert_romain": (BuildContext context) => BlocProvider<RomainBloc>(
+            child: RomainConvertUi(),
+            bloc: RomainBloc(),
+          ),
+          "/convert_memories": (BuildContext context) => BlocProvider<MemoriesBloc>(
+            child: MemoriesUi(),
+            bloc: MemoriesBloc(),
           ),
           // "/percent": (BuildContext context) => BlocProvider<IDPromotionsBloc>(
           //   child: IdPercentMethodes(),
