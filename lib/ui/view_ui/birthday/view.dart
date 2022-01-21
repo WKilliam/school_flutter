@@ -153,11 +153,17 @@ class BirthdayUi extends StatelessWidget{
                                             // keyboardType: _keyboardType,
                                             // inputFormatters: _inputFormatters,
                                             onChanged: (text) {
-                                              bloc?.updateControllerText("ControllerHour", text);
+                                              var value = '${text}';
+                                              if(text == ""){
+                                                bloc?.update("Birthday_hour", 0);
+                                              }else{
+                                                bloc?.update("Birthday_hour", int.parse(value));
+                                              }
+
                                             },
                                             // keyboardType:,
-                                            // keyboardType: TextInputType.number,
-                                            // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                                            keyboardType: TextInputType.number,
+                                            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                           ),
                                           decoration: const BoxDecoration(
                                             borderRadius:
@@ -180,15 +186,7 @@ class BirthdayUi extends StatelessWidget{
                                           width: 100,
                                           child:
                                           TextField(
-                                            controller: snapshot.data['Controller'],
                                             decoration: const InputDecoration(
-                                              prefixIcon: Icon(
-                                                Icons.price_check_sharp,
-                                                color: Colors.pink,
-                                                size: 24.0,
-                                                semanticLabel:
-                                                'Text to announce in accessibility modes',
-                                              ),
                                               filled: true,
                                               labelText: 'Minutes',
                                               contentPadding: EdgeInsets.only(
@@ -210,12 +208,16 @@ class BirthdayUi extends StatelessWidget{
                                                   borderSide:
                                                   BorderSide(color: Colors.red)),
                                             ),
-                                            readOnly: true,
                                             //set it true, so that user will not able to edit text
                                             // keyboardType: _keyboardType,
                                             // inputFormatters: _inputFormatters,
                                             onChanged: (text) {
-
+                                              var value = '${text}';
+                                              if(text == ""){
+                                                bloc?.update("Birthday_minute", 0);
+                                              }else{
+                                                bloc?.update("Birthday_minute", int.parse(value));
+                                              }
                                             },
                                             // keyboardType:,
                                             keyboardType: TextInputType.number,
@@ -261,7 +263,7 @@ class BirthdayUi extends StatelessWidget{
                                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                   decoration: InputDecoration(
                                     filled: true,
-                                    labelText: 'Days : ${snapshot.data["Birthday_day"]}',
+                                    labelText: 'Days : ${snapshot.data["Birthday_day_result"]}',
                                     contentPadding: const EdgeInsets.only(
                                         bottom: 5.0, left: 10.0, right: 10.0),
                                     labelStyle: TextStyle(color: Colors.red),
@@ -298,7 +300,7 @@ class BirthdayUi extends StatelessWidget{
                                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                   decoration: InputDecoration(
                                     filled: true,
-                                    labelText: 'Days : ${snapshot.data["Birthday_day"]}',
+                                    labelText: 'Days : ${snapshot.data["Birthday_mouth_result"]}',
                                     contentPadding: const EdgeInsets.only(
                                         bottom: 5.0, left: 10.0, right: 10.0),
                                     labelStyle: TextStyle(color: Colors.red),
@@ -335,7 +337,7 @@ class BirthdayUi extends StatelessWidget{
                                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                   decoration: InputDecoration(
                                     filled: true,
-                                    labelText: 'Days : ${snapshot.data["Birthday_day"]}',
+                                    labelText: 'Year : ${snapshot.data["Birthday_year_result"]}',
                                     contentPadding: const EdgeInsets.only(
                                         bottom: 5.0, left: 10.0, right: 10.0),
                                     labelStyle: TextStyle(color: Colors.red),
@@ -365,7 +367,7 @@ class BirthdayUi extends StatelessWidget{
                             children: [
                               SizedBox(
                                 height: 50.0,
-                                width: 100,
+                                width: 150,
                                 child: TextField(
                                   // keyboardType: _keyboardType,
                                   // inputFormatters: _inputFormatters,
@@ -377,7 +379,7 @@ class BirthdayUi extends StatelessWidget{
                                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                   decoration: InputDecoration(
                                     filled: true,
-                                    labelText: 'Days : ${snapshot.data["Birthday_day"]}',
+                                    labelText: 'Hours : ${snapshot.data["Birthday_hour_result"]}',
                                     contentPadding: const EdgeInsets.only(
                                         bottom: 5.0, left: 10.0, right: 10.0),
                                     labelStyle: TextStyle(color: Colors.red),
@@ -402,7 +404,7 @@ class BirthdayUi extends StatelessWidget{
                               Container(width: 5,),
                               SizedBox(
                                 height: 50.0,
-                                width: 100,
+                                width: 150,
                                 child: TextField(
                                   // keyboardType: _keyboardType,
                                   // inputFormatters: _inputFormatters,
@@ -414,7 +416,7 @@ class BirthdayUi extends StatelessWidget{
                                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                   decoration: InputDecoration(
                                     filled: true,
-                                    labelText: 'Days : ${snapshot.data["Birthday_day"]}',
+                                    labelText: 'Minutes : ${snapshot.data["Birthday_minute_result"]}',
                                     contentPadding: const EdgeInsets.only(
                                         bottom: 5.0, left: 10.0, right: 10.0),
                                     labelStyle: TextStyle(color: Colors.red),
@@ -448,7 +450,12 @@ class BirthdayUi extends StatelessWidget{
                           child: ElevatedButton(
                             child: const Text("Convert"),
                             onPressed: () {
-
+                              var mybirth = BirthdayMethodes.mybirth(snapshot.data["Birthday_day"], snapshot.data["Birthday_mouth"], snapshot.data["Birthday_year"], snapshot.data["Birthday_hour"], snapshot.data["Birthday_minute"]);
+                              bloc?.update("Birthday_day_result", mybirth[0]);
+                              bloc?.update("Birthday_mouth_result", mybirth[1]);
+                              bloc?.update("Birthday_year_result", mybirth[2]);
+                              bloc?.update("Birthday_hour_result", mybirth[3]);
+                              bloc?.update("Birthday_minute_result", mybirth[4]);
                             },
                           ),
                         ),

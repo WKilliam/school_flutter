@@ -12,6 +12,11 @@ class BirthdayBloc extends Bloc {
     "Birthday_year" : 0,
     "Birthday_hour" : 0,
     "Birthday_minute" : 0,
+    "Birthday_day_result" : 0,
+    "Birthday_mouth_result" : 0,
+    "Birthday_year_result" : 0,
+    "Birthday_hour_result" : 0,
+    "Birthday_minute_result" : 0,
     "Controller": TextEditingController(),
     "ControllerHour": TextEditingController(),
   };
