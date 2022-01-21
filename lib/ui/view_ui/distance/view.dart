@@ -3,27 +3,31 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:school_flutter/blocs/bloc_provider.dart';
-import 'package:school_flutter/blocs/blocs/controller/memories_bloc.dart';
+import 'package:school_flutter/blocs/blocs/controller/distance_bloc.dart';
 import 'package:school_flutter/components/CenterText.dart';
 import 'package:school_flutter/components/ContainerCustum.dart';
 import 'package:school_flutter/components/ScaffoldCustum.dart';
 
 import 'methodes.dart';
 
-class MemoriesUi extends StatelessWidget{
+class DistanceUi extends StatelessWidget{
 
   List<String> items = [
-    'O',
-    'KO',
-    'MO',
-    'GO',
-    'TO',
-    'PO',
+    'in',
+    'ft',
+    'yd',
+    'nm',
+    'mm',
+    'cm',
+    'dm',
+    'm',
+    'km'
   ];
+
 
   @override
   Widget build(BuildContext context) {
-    final bloc = BlocProvider.of<MemoriesBloc>(context);
+    final bloc = BlocProvider.of<DistanceBloc>(context);
     return ScaffoldCustum(
         child: StreamBuilder<Map<String,dynamic>>(
           stream: bloc?.stream,
@@ -127,7 +131,7 @@ class MemoriesUi extends StatelessWidget{
                                                   ),
                                                   Expanded(
                                                     child: Text(
-                                                      'in',
+                                                      'O',
                                                       style: TextStyle(
                                                         fontSize: 14,
                                                         fontWeight: FontWeight.bold,
@@ -163,7 +167,7 @@ class MemoriesUi extends StatelessWidget{
                                               iconEnabledColor: Colors.white,
                                               iconDisabledColor: Colors.grey,
                                               buttonHeight: 60,
-                                              buttonWidth: 100,
+                                              buttonWidth: 60,
                                               buttonPadding: const EdgeInsets.only(left: 14, right: 14),
                                               buttonDecoration: BoxDecoration(
                                                 borderRadius: BorderRadius.circular(14),
@@ -200,7 +204,7 @@ class MemoriesUi extends StatelessWidget{
                                                   ),
                                                   Expanded(
                                                     child: Text(
-                                                      'in',
+                                                      'O',
                                                       style: TextStyle(
                                                         fontSize: 14,
                                                         fontWeight: FontWeight.bold,
@@ -236,7 +240,7 @@ class MemoriesUi extends StatelessWidget{
                                               iconEnabledColor: Colors.white,
                                               iconDisabledColor: Colors.grey,
                                               buttonHeight: 60,
-                                              buttonWidth: 100,
+                                              buttonWidth: 60,
                                               buttonPadding: const EdgeInsets.only(left: 14, right: 14),
                                               buttonDecoration: BoxDecoration(
                                                 borderRadius: BorderRadius.circular(14),
@@ -330,9 +334,9 @@ class MemoriesUi extends StatelessWidget{
                               var to = snapshot.data['To'];
                               print(' $data $instance $to');
                               if(data == ""){
-                                bloc?.update("Result", MemoriesMethodes.convertType(0.0,instance,to));
+                                bloc?.update("Result", DistanceMethodes.convert(0.0,instance,to));
                               }else{
-                                bloc?.update("Result", MemoriesMethodes.convertType(double.parse(data),instance,to));
+                                bloc?.update("Result", DistanceMethodes.convert(double.parse(data),instance,to));
                               }
                             },
                           ),

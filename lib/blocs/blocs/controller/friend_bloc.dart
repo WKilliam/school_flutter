@@ -5,18 +5,17 @@ import '../../bloc.dart';
 class FriendBloc extends Bloc {
 
   final Map <String,dynamic> _date = {
-    "Friend_day1" : 0,
-    "Friend_mouth1" : 0,
-    "Friend_year1" : 0,
-    "Friend_hour1" : 0,
-    "Friend_minute1" : 0,
-    "Friend_day2" : 0,
-    "Friend_mouth2" : 0,
-    "Friend_year2" : 0,
-    "Friend_hour2" : 0,
-    "Friend_minute2" : 0,
-    "Controller1": TextEditingController(),
-    "Controller2": TextEditingController(),
+    "Friend_day_result" : 0,
+    "Friend_mouth_result" : 0,
+    "Friend_year_result" : 0,
+    "Friend_start_day" : 0,
+    "Friend_start_mouth" : 0,
+    "Friend_start_year" : 0,
+    "Friend_end_day" : 0,
+    "Friend_end_mouth" : 0,
+    "Friend_end_year" : 0,
+    "Controller_start": TextEditingController(),
+    "Controller_end": TextEditingController(),
   };
 
   final _streamController = StreamController <Map <String, dynamic>>();
@@ -27,20 +26,12 @@ class FriendBloc extends Bloc {
     sink.add(_date);
   }
 
-  void update1(String key,dynamic value) {
-    _date[key] = value;
-    sink.add(_date);
-  }
-  void update2(String key,dynamic value) {
+  void update(String key,dynamic value) {
     _date[key] = value;
     sink.add(_date);
   }
 
-  void updateController1Text(String key,dynamic value) {
-    _date[key].text = value;
-    sink.add(_date);
-  }
-  void updateController2Text(String key,dynamic value) {
+  void updateControllerText(String key,dynamic value) {
     _date[key].text = value;
     sink.add(_date);
   }

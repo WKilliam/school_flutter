@@ -4,16 +4,18 @@ import 'package:school_flutter/blocs/blocs/controller/percent_bloc.dart';
 import 'package:school_flutter/blocs/blocs/controller/utilitaires_controller_bloc.dart';
 import 'package:school_flutter/blocs/bloc_provider.dart';
 import 'package:school_flutter/ui/homeV2.dart';
+import 'package:school_flutter/ui/view_ui/M2/view.dart';
 import 'package:school_flutter/ui/view_ui/birthday/methodes.dart';
 import 'package:school_flutter/ui/view_ui/birthday/view.dart';
-import 'package:school_flutter/ui/view_ui/friend/view.dart';
+import 'package:school_flutter/ui/view_ui/hexa/view.dart';
 import 'package:school_flutter/ui/view_ui/memories/view.dart';
 import 'package:school_flutter/ui/view_ui/percent/view.dart';
 import 'package:school_flutter/ui/view_ui/romain/view.dart';
 import 'package:school_flutter/ui/view_ui/temperature/view.dart';
 
 import 'blocs/blocs/controller/birthday_bloc.dart';
-import 'blocs/blocs/controller/friend_bloc.dart';
+import 'blocs/blocs/controller/hexa_bloc.dart';
+import 'blocs/blocs/controller/id_convert_convertir_bloc.dart';
 import 'blocs/blocs/controller/temperature_bloc.dart';
 import 'blocs/blocs/controller/romain_bloc.dart';
 void main() {
@@ -52,9 +54,13 @@ class MyApp extends StatelessWidget {
             child: BirthdayUi(),
             bloc: BirthdayBloc(),
           ),
-          "/friend": (BuildContext context) => BlocProvider<FriendBloc>(
-            child: FriendUi(),
-            bloc: FriendBloc(),
+          "/M2": (BuildContext context) => BlocProvider<IDConvertirBloc>(
+            child: ConvertirM2Ui(),
+            bloc: IDConvertirBloc(),
+          ),
+          "/hexa": (BuildContext context) => BlocProvider<HexaBloc>(
+            child: HexaUi(),
+            bloc: HexaBloc(),
           ),
         }
     );

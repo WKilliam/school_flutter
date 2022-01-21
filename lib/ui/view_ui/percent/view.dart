@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
+
 import 'package:school_flutter/blocs/bloc_provider.dart';
 import 'package:school_flutter/blocs/blocs/controller/percent_bloc.dart';
 import 'package:school_flutter/components/CenterText.dart';
