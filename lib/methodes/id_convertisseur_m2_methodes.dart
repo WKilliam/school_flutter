@@ -226,13 +226,17 @@ class ConvertirM2Methodes extends StatelessWidget {
                                     bloc?.update(
                                         "Longeur" , double.parse(number));
                                   },
+
                                   decoration: const InputDecoration(
+                                    border: OutlineInputBorder(),
+                                    labelText: 'mettre une valeur en Métres',
                                     filled: true,
                                     contentPadding: EdgeInsets.only(
                                         bottom: 5.0, left: 10.0, right: 10.0),
                                   ),
                                 ),
                               ),
+
                               TextField(
 
                                 keyboardType: TextInputType.number,
@@ -241,6 +245,8 @@ class ConvertirM2Methodes extends StatelessWidget {
                                   bloc?.update("Largeur", double.parse(number));
                                 },
                                 decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  labelText: 'mettre une valeur en Métres',
                                   filled: true,
                                   contentPadding: EdgeInsets.only(
                                       bottom: 5.0, left: 10.0, right: 10.0),
