@@ -1,11 +1,19 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
+
 import '../../bloc.dart';
 
 class BirthdayBloc extends Bloc {
 
   final Map <String,dynamic> _date = {
-    "Birthday" : [0,0,0,0,0]
+    "Birthday_day" : 0,
+    "Birthday_mouth" : 0,
+    "Birthday_year" : 0,
+    "Birthday_hour" : 0,
+    "Birthday_minute" : 0,
+    "Controller": TextEditingController(),
+    "ControllerHour": TextEditingController(),
   };
 
   final _streamController = StreamController <Map <String, dynamic>>();
@@ -20,6 +28,12 @@ class BirthdayBloc extends Bloc {
     _date[key] = value;
     sink.add(_date);
   }
+
+  void updateControllerText(String key,dynamic value) {
+    _date[key].text = value;
+    sink.add(_date);
+  }
+
 
   @override
   void dispose() => _streamController.close();
