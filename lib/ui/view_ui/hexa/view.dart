@@ -57,15 +57,9 @@ class HexaUi extends StatelessWidget {
                                   if (number == "") {
                                     bloc?.update("TextField", "0");
                                   } else {
-                                    bloc?.update(
-                                        "TextField", number);
+                                    bloc?.update("TextField", number);
                                   }
                                 },
-                                // keyboardType:,
-                                keyboardType: TextInputType.number,
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.digitsOnly
-                                ],
                                 decoration: const InputDecoration(
                                   prefixIcon: Icon(
                                     Icons.memory,
@@ -390,9 +384,6 @@ class HexaUi extends StatelessWidget {
                     },
                   ),
                 ),
-                Text('${snapshot.data["To"]}'),
-                Text('${snapshot.data["Instance"]}'),
-                Text('${snapshot.data["Result"]}')
               ])
             ],
           )));

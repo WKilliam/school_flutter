@@ -14,7 +14,8 @@ class UtilitairesControllerBloc extends Bloc {
     UtilitaireEnum.id_convert_memories : UtilitairesDTO('/convert_memories','Convert Memories'),
     UtilitaireEnum.id_calculate_temperature : UtilitairesDTO('/calculate_temperature',"Calculate temperature"),
     UtilitaireEnum.id_birthday : UtilitairesDTO('/birthday',"Birthday exist"),
-    UtilitaireEnum.id_calculate_area : UtilitairesDTO('/M2',"Calcul area")
+    UtilitaireEnum.id_calculate_area : UtilitairesDTO('/M2',"Calcul area"),
+    UtilitaireEnum.id_hexa : UtilitairesDTO('/hexa',"Calcul Hexa")
   };
 
   final _streamController = StreamController<Map<UtilitaireEnum,UtilitairesDTO>>();
