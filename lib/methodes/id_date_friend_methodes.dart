@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:school_flutter/blocs/bloc_provider.dart';
 import 'package:school_flutter/blocs/blocs/controller/id_date_friend_bloc.dart';
-import 'package:school_flutter/ui/ScaffoldCustum.dart';
+import 'package:school_flutter/components/ScaffoldCustum.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class IdDateFriendMethodes extends StatelessWidget {
@@ -14,12 +14,12 @@ class IdDateFriendMethodes extends StatelessWidget {
     var differenceJour = picker2.difference(picker1).inDays;
     var differenceHeure = picker2.difference(picker1).inHours;
     var differenceMinute = picker2.difference(picker1).inMinutes;
-    /*if (picker1 >= picker2) {
+    if (picker1.isBefore(picker2)) {
       return ('${differenceJour * -1}, ${differenceHeure * -1}, ${differenceMinute * -1},');
     } else {
       return ('${differenceJour * 1}, ${differenceHeure * 1}, ${differenceMinute * 1}');
     }
-  }*/
+  }
   Center center(String text) {
     return Center(
       child:
@@ -234,4 +234,4 @@ class IdDateFriendMethodes extends StatelessWidget {
     // TODO: implement build
     throw UnimplementedError();
   }
-}
+

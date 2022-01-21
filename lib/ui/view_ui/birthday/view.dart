@@ -6,6 +6,8 @@ import 'package:school_flutter/blocs/blocs/controller/birthday_bloc.dart';
 import 'package:school_flutter/components/CenterText.dart';
 import 'package:school_flutter/components/ContainerCustum.dart';
 import 'package:school_flutter/components/ScaffoldCustum.dart';
+import 'package:school_flutter/ui/view_ui/birthday/methodes.dart';
+import 'package:intl/intl.dart';
 
 class BirthdayUi extends StatelessWidget{
   @override
@@ -42,68 +44,6 @@ class BirthdayUi extends StatelessWidget{
                                       width: 250,
                                       child:
                                       TextField(
-                                        // keyboardType: _keyboardType,
-                                        // inputFormatters: _inputFormatters,
-                                        onChanged: (text) {
-                                          if(text == ""){
-                                            bloc?.update("price", double.parse("0.0"));
-                                          }else{
-                                            bloc?.update("price", double.parse(text));
-                                          }
-                                        },
-                                        // keyboardType:,
-                                        keyboardType: TextInputType.number,
-                                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                                        decoration: InputDecoration(
-                                          prefixIcon: const Icon(
-                                            Icons.price_check_sharp,
-                                            color: Colors.pink,
-                                            size: 24.0,
-                                            semanticLabel:
-                                            'Text to announce in accessibility modes',
-                                          ),
-                                          filled: true,
-                                          labelText: '${snapshot.data["title_price"]}',
-                                          contentPadding: const EdgeInsets.only(
-                                              bottom: 5.0, left: 10.0, right: 10.0),
-                                          labelStyle: TextStyle(color: Colors.red),
-                                          fillColor: Colors.white10,
-                                          border: const OutlineInputBorder(
-                                            borderRadius:
-                                            BorderRadius.all(Radius.circular(20)),
-                                          ),
-                                          enabledBorder: const OutlineInputBorder(
-                                              borderRadius:
-                                              BorderRadius.all(Radius.circular(20)),
-                                              borderSide:
-                                              BorderSide(color: Colors.red)),
-                                          focusedBorder: const OutlineInputBorder(
-                                              borderRadius:
-                                              BorderRadius.all(Radius.circular(20)),
-                                              borderSide:
-                                              BorderSide(color: Colors.red)),
-                                        ),
-                                      ),
-                                      decoration: const BoxDecoration(
-                                        borderRadius:
-                                        BorderRadius.all(Radius.circular(20)),
-                                        color: Colors.black26,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.black26,
-                                            blurRadius: 2.0,
-                                            spreadRadius: 0.0,
-                                            offset: Offset(2.0,
-                                                2.0), // shadow direction: bottom right
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      height: 50.0,
-                                      width: 250,
-                                      child:
-                                      TextField(
                                         controller: snapshot.data['ControllerStart'],
                                         decoration: const InputDecoration(
                                             icon: Icon(Icons.calendar_today),
@@ -121,7 +61,7 @@ class BirthdayUi extends StatelessWidget{
                                               lastDate: DateTime(2101));
                                           if(pickedDate != null ){
                                             String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
-                                            bloc?.updateControllerText('ControllerStart', formattedDate);
+                                            //bloc?.updateControllerText('ControllerStart', formattedDate);
                                             bloc?.update('Start', [pickedDate.day,pickedDate.month,pickedDate.year,pickedDate.hour,pickedDate.minute]);
                                           }else{
                                             print("Date is not selected");
@@ -139,35 +79,6 @@ class BirthdayUi extends StatelessWidget{
                                         // keyboardType:,
                                         keyboardType: TextInputType.number,
                                         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                                        decoration: InputDecoration(
-                                          prefixIcon: const Icon(
-                                            Icons.price_check_sharp,
-                                            color: Colors.pink,
-                                            size: 24.0,
-                                            semanticLabel:
-                                            'Text to announce in accessibility modes',
-                                          ),
-                                          filled: true,
-                                          labelText: '${snapshot.data["title_price"]}',
-                                          contentPadding: const EdgeInsets.only(
-                                              bottom: 5.0, left: 10.0, right: 10.0),
-                                          labelStyle: TextStyle(color: Colors.red),
-                                          fillColor: Colors.white10,
-                                          border: const OutlineInputBorder(
-                                            borderRadius:
-                                            BorderRadius.all(Radius.circular(20)),
-                                          ),
-                                          enabledBorder: const OutlineInputBorder(
-                                              borderRadius:
-                                              BorderRadius.all(Radius.circular(20)),
-                                              borderSide:
-                                              BorderSide(color: Colors.red)),
-                                          focusedBorder: const OutlineInputBorder(
-                                              borderRadius:
-                                              BorderRadius.all(Radius.circular(20)),
-                                              borderSide:
-                                              BorderSide(color: Colors.red)),
-                                        ),
                                       ),
                                       decoration: const BoxDecoration(
                                         borderRadius:
@@ -189,50 +100,6 @@ class BirthdayUi extends StatelessWidget{
                                 )),
                           ),
                           //second item in the column is a transparent space of 20
-                          Container(height: 50.0),
-                          SizedBox(
-                            height: 50.0,
-                            width: 250,
-                            child: TextField(
-                              // keyboardType: _keyboardType,
-                              // inputFormatters: _inputFormatters,
-                              onChanged: (text) {
-                              },
-                              // keyboardType:,
-                              keyboardType: TextInputType.number,
-                              enabled: false,
-                              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                              decoration: InputDecoration(
-                                prefixIcon: const Icon(
-                                  Icons.price_check_sharp,
-                                  color: Colors.pink,
-                                  size: 24.0,
-                                  semanticLabel:
-                                  'Text to announce in accessibility modes',
-                                ),
-                                filled: true,
-                                labelText: '${snapshot.data["title_result"]} : ${snapshot.data["result"]}',
-                                contentPadding: const EdgeInsets.only(
-                                    bottom: 5.0, left: 10.0, right: 10.0),
-                                labelStyle: TextStyle(color: Colors.red),
-                                fillColor: Colors.white10,
-                                border: const OutlineInputBorder(
-                                  borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                                ),
-                                enabledBorder: const OutlineInputBorder(
-                                    borderRadius:
-                                    BorderRadius.all(Radius.circular(20)),
-                                    borderSide:
-                                    BorderSide(color: Colors.red)),
-                                focusedBorder: const OutlineInputBorder(
-                                    borderRadius:
-                                    BorderRadius.all(Radius.circular(20)),
-                                    borderSide:
-                                    BorderSide(color: Colors.red)),
-                              ),
-                            ),
-                          ),
                           Container(height: 10.0),
                           SizedBox(
                             height: 50.0,
@@ -255,7 +122,7 @@ class BirthdayUi extends StatelessWidget{
                                   'Text to announce in accessibility modes',
                                 ),
                                 filled: true,
-                                labelText: '${snapshot.data["title_eco"]} : ${snapshot.data["result_eco"]}',
+                                labelText: 'Je vis depuis ${snapshot.data["title_eco"]} : ${snapshot.data["result_eco"]}',
                                 contentPadding: const EdgeInsets.only(
                                     bottom: 5.0, left: 10.0, right: 10.0),
                                 labelStyle: TextStyle(color: Colors.red),
@@ -277,16 +144,190 @@ class BirthdayUi extends StatelessWidget{
                               ),
                             ),
                           ),
+                          SizedBox(
+                            height: 50.0,
+                            width: 250,
+
+                            child: TextField(
+                              // keyboardType: _keyboardType,
+                              // inputFormatters: _inputFormatters,
+                              onChanged: (text) {
+                              },
+                              // keyboardType:,
+                              keyboardType: TextInputType.number,
+                              enabled: false,
+                              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                              decoration: InputDecoration(
+                                prefixIcon: const Icon(
+                                  Icons.price_check_sharp,
+                                  color: Colors.pink,
+                                  size: 24.0,
+                                  semanticLabel:
+                                  'Text to announce in accessibility modes',
+                                ),
+                                filled: true,
+                                labelText: 'Next birthday${snapshot.data["title_eco"]} : ${snapshot.data["result_eco"]}',
+                                contentPadding: const EdgeInsets.only(
+                                    bottom: 5.0, left: 10.0, right: 10.0),
+                                labelStyle: TextStyle(color: Colors.red),
+                                fillColor: Colors.white10,
+                                border: const OutlineInputBorder(
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                                ),
+                                enabledBorder: const OutlineInputBorder(
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                    borderSide:
+                                    BorderSide(color: Colors.red)),
+                                focusedBorder: const OutlineInputBorder(
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                    borderSide:
+                                    BorderSide(color: Colors.red)),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 50.0,
+                            width: 250,
+                            child: TextField(
+                              // keyboardType: _keyboardType,
+                              // inputFormatters: _inputFormatters,
+                              onChanged: (text) {
+                              },
+                              // keyboardType:,
+                              keyboardType: TextInputType.number,
+                              enabled: false,
+                              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                              decoration: InputDecoration(
+                                prefixIcon: const Icon(
+                                  Icons.price_check_sharp,
+                                  color: Colors.pink,
+                                  size: 24.0,
+                                  semanticLabel:
+                                  'Text to announce in accessibility modes',
+                                ),
+                                filled: true,
+                                labelText: 'Mois${snapshot.data["title_eco"]} : ${snapshot.data["result_eco"]}',
+                                contentPadding: const EdgeInsets.only(
+                                    bottom: 5.0, left: 10.0, right: 10.0),
+                                labelStyle: TextStyle(color: Colors.red),
+                                fillColor: Colors.white10,
+                                border: const OutlineInputBorder(
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                                ),
+                                enabledBorder: const OutlineInputBorder(
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                    borderSide:
+                                    BorderSide(color: Colors.red)),
+                                focusedBorder: const OutlineInputBorder(
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                    borderSide:
+                                    BorderSide(color: Colors.red)),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 50.0,
+                            width: 250,
+                            child: TextField(
+                              // keyboardType: _keyboardType,
+                              // inputFormatters: _inputFormatters,
+                              onChanged: (text) {
+                              },
+                              // keyboardType:,
+                              keyboardType: TextInputType.number,
+                              enabled: false,
+                              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                              decoration: InputDecoration(
+                                prefixIcon: const Icon(
+                                  Icons.price_check_sharp,
+                                  color: Colors.pink,
+                                  size: 24.0,
+                                  semanticLabel:
+                                  'Text to announce in accessibility modes',
+                                ),
+                                filled: true,
+                                labelText: 'Jours ${snapshot.data["title_eco"]} : ${snapshot.data["result_eco"]}',
+                                contentPadding: const EdgeInsets.only(
+                                    bottom: 5.0, left: 10.0, right: 10.0),
+                                labelStyle: TextStyle(color: Colors.red),
+                                fillColor: Colors.white10,
+                                border: const OutlineInputBorder(
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                                ),
+                                enabledBorder: const OutlineInputBorder(
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                    borderSide:
+                                    BorderSide(color: Colors.red)),
+                                focusedBorder: const OutlineInputBorder(
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                    borderSide:
+                                    BorderSide(color: Colors.red)),
+                              ),
+                            ),
+                          ),
+                          // SizedBox(
+                          //   height: 50.0,
+                          //   width: 250,
+                          //   child: TextField(
+                          //     // keyboardType: _keyboardType,
+                          //     // inputFormatters: _inputFormatters,
+                          //     onChanged: (text) {
+                          //     },
+                          //     // keyboardType:,
+                          //     keyboardType: TextInputType.number,
+                          //     enabled: false,
+                          //     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                          //     decoration: InputDecoration(
+                          //       prefixIcon: const Icon(
+                          //         Icons.price_check_sharp,
+                          //         color: Colors.pink,
+                          //         size: 24.0,
+                          //         semanticLabel:
+                          //         'Text to announce in accessibility modes',
+                          //       ),
+                          //       filled: true,
+                          //       labelText: 'Heures depuis ma naissance${snapshot.data["title_eco"]} : ${snapshot.data["result_eco"]}',
+                          //       contentPadding: const EdgeInsets.only(
+                          //           bottom: 5.0, left: 10.0, right: 10.0),
+                          //       labelStyle: TextStyle(color: Colors.red),
+                          //       fillColor: Colors.white10,
+                          //       border: const OutlineInputBorder(
+                          //         borderRadius:
+                          //         BorderRadius.all(Radius.circular(20)),
+                          //       ),
+                          //       enabledBorder: const OutlineInputBorder(
+                          //           borderRadius:
+                          //           BorderRadius.all(Radius.circular(20)),
+                          //           borderSide:
+                          //           BorderSide(color: Colors.red)),
+                          //       focusedBorder: const OutlineInputBorder(
+                          //           borderRadius:
+                          //           BorderRadius.all(Radius.circular(20)),
+                          //           borderSide:
+                          //           BorderSide(color: Colors.red)),
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                       //for the button i create another column
                       Column(children: <Widget>[
                         //first element in column is the transparent offset
-                        Container(height: 280.0),
+                        Container(height: 250.0),
                         Center(
                           child: ElevatedButton(
                             child: const Text("Convert"),
                             onPressed: () {
+                              //bloc?.updateControllerText('ControllerStart', formattedDate);
                               // bloc?.update("result", PercentMethodes.percent(snapshot.data["price"], snapshot.data["percent"]));
                               // bloc?.update("result_eco", PercentMethodes.eco(snapshot.data["price"], snapshot.data["percent"]));
                             },
@@ -301,5 +342,5 @@ class BirthdayUi extends StatelessWidget{
           },
         ));
   }
-  
+
 }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:school_flutter/blocs/bloc_provider.dart';
 import 'package:school_flutter/blocs/blocs/controller/id_convert_convertir_bloc.dart';
 import 'package:school_flutter/blocs/blocs/controller/id_convert_hexa_bloc.dart';
-import 'package:school_flutter/ui/ScaffoldCustum.dart';
+import 'package:school_flutter/components/ScaffoldCustum.dart';
 
 
 class DeciToHexa extends StatelessWidget {
