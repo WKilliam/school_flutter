@@ -1,23 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:school_flutter/blocs/blocs/controller/memories_bloc.dart';
+import 'package:school_flutter/blocs/blocs/controller/percent_bloc.dart';
 import 'package:school_flutter/blocs/blocs/controller/utilitaires_controller_bloc.dart';
-import 'package:school_flutter/methodes/id_hexa_methodes.dart';
-import 'package:school_flutter/ui/home.dart';
 import 'package:school_flutter/blocs/bloc_provider.dart';
-import 'package:school_flutter/blocs/blocs/controller/id_convert_romain_bloc.dart';
-import 'package:school_flutter/methodes/id_convert_romain_methodes.dart';
+import 'package:school_flutter/ui/homeV2.dart';
+import 'package:school_flutter/ui/view_ui/memories/view.dart';
+import 'package:school_flutter/ui/view_ui/percent/view.dart';
+import 'package:school_flutter/ui/view_ui/romain/view.dart';
 
-import 'blocs/blocs/controller/id_convert_convertir_bloc.dart';
-import 'blocs/blocs/controller/id_convert_hexa_bloc.dart';
-import 'blocs/blocs/controller/id_convert_memories_bloc.dart';
-import 'blocs/blocs/controller/id_convert_temperature_bloc.dart';
-import 'blocs/blocs/controller/id_date_friend_bloc.dart';
-import 'blocs/blocs/controller/id_promotions_bloc.dart';
-import 'methodes/id_convert_memories_methodes.dart';
-import 'methodes/id_convertisseur_m2_methodes.dart';
-import 'methodes/id_date_friend_methodes.dart';
-import 'methodes/id_percent_methodes.dart';
-import 'methodes/id_temperature_methodes.dart';
-
+import 'blocs/blocs/controller/romain_bloc.dart';
 void main() {
   runApp(MyApp());
 }
@@ -28,39 +19,53 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: true,
         initialRoute: '/home',
+        theme: ThemeData(primarySwatch: Colors.teal, brightness: Brightness.dark),
         routes:<String, WidgetBuilder>{
           "/home": (BuildContext context) => BlocProvider<UtilitairesControllerBloc>(
-            child: Home(),
+            child: HomeV2(),
             bloc: UtilitairesControllerBloc(),
           ),
-          "/convert_romain": (BuildContext context) => BlocProvider<IdConvertRomainBloc>(
-            child: IdConvertRomainMethodes(),
-            bloc: IdConvertRomainBloc(),
+          "/percent": (BuildContext context) => BlocProvider<PercentBloc>(
+            child: PercentUi(),
+            bloc: PercentBloc(),
           ),
-          "/calculate_area": (BuildContext context) => BlocProvider<IDConvertirBloc>(
-            child: ConvertirM2Methodes(),
-            bloc: IDConvertirBloc(),
+          "/convert_romain": (BuildContext context) => BlocProvider<RomainBloc>(
+            child: RomainConvertUi(),
+            bloc: RomainBloc(),
           ),
-          "/convert_memories": (BuildContext context) => BlocProvider<IdConvertMemoriesBloc>(
-            child: IdConvertMemoriesMethodes(),
-            bloc: IdConvertMemoriesBloc(),
+          "/convert_memories": (BuildContext context) => BlocProvider<MemoriesBloc>(
+            child: MemoriesUi(),
+            bloc: MemoriesBloc(),
           ),
-          "/percent": (BuildContext context) => BlocProvider<IDPromotionsBloc>(
-            child: IdPercentMethodes(),
-            bloc: IDPromotionsBloc(),
-          ),
-          "/calculate_temperature": (BuildContext context) => BlocProvider<IdTemperatureBloc>(
-            child: IdTemperatureMethodes(),
-            bloc: IdTemperatureBloc(),
-          ),
-          "/date_friend": (BuildContext context) => BlocProvider<IdDateFriendBloc>(
-            child: IdDateFriendMethodes(),
-            bloc: IdDateFriendBloc(),
-          ),
-          "/convert_hexa": (BuildContext context) => BlocProvider<IDhexaBloc>(
-            child: DeciToHexa(),
-            bloc: IDhexaBloc (),
-          ),
+          // "/percent": (BuildContext context) => BlocProvider<IDPromotionsBloc>(
+          //   child: IdPercentMethodes(),
+          //   bloc: IDPromotionsBloc(),
+          // ),
+          // "/home": (BuildContext context) => BlocProvider<UtilitairesControllerBloc>(
+          //   child: Home(),
+          //   bloc: UtilitairesControllerBloc(),
+          // ),
+          // "/convert_romain": (BuildContext context) => BlocProvider<IdConvertRomainBloc>(
+          //   child: IdConvertRomainMethodes(),
+          //   bloc: IdConvertRomainBloc(),
+          // ),
+          // "/calculate_area": (BuildContext context) => BlocProvider<IdConvertRomainBloc>(
+          //   child: IdConvertRomainMethodes(),
+          //   bloc: IdConvertRomainBloc(),
+          // ),
+          // "/convert_memories": (BuildContext context) => BlocProvider<IdConvertMemoriesBloc>(
+          //   child: IdConvertMemoriesMethodes(),
+          //   bloc: IdConvertMemoriesBloc(),
+          // ),
+          //
+          // "/calculate_temperature": (BuildContext context) => BlocProvider<IdTemperatureBloc>(
+          //   child: IdTemperatureMethodes(),
+          //   bloc: IdTemperatureBloc(),
+          // ),
+          // "/date_friend": (BuildContext context) => BlocProvider<IdDateFriendBloc>(
+          //   child: IdDateFriendMethodes(),
+          //   bloc: IdDateFriendBloc(),
+          // ),
         }
     );
   }

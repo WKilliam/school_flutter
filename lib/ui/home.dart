@@ -4,7 +4,7 @@ import 'package:school_flutter/blocs/blocs/controller/utilitaires_controller_blo
 import 'package:school_flutter/blocs/blocs/dto/utilitaires_dto.dart';
 import 'package:school_flutter/blocs/blocs/enum/utilitaires_enum.dart';
 import 'package:school_flutter/components/GridButton.dart';
-import 'package:school_flutter/ui/ScaffoldCustum.dart';
+import 'package:school_flutter/components/ScaffoldCustum.dart';
 
 class Home extends StatelessWidget {
   Center center(String text) {
@@ -26,7 +26,8 @@ class Home extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            child: StreamBuilder<Map<UtilitaireEnum, UtilitairesDTO>>(
+            child:
+            StreamBuilder<Map<UtilitaireEnum, UtilitairesDTO>>(
               stream: bloc?.stream,
               builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                 if (snapshot.data == null) {

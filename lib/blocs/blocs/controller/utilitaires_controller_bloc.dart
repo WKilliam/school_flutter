@@ -9,14 +9,10 @@ import 'package:school_flutter/blocs/bloc.dart';
 class UtilitairesControllerBloc extends Bloc {
 
   final Map<UtilitaireEnum,UtilitairesDTO> _mapTextType = {
-    // TO DO : Add New Fonctionalité
-    UtilitaireEnum.id_percent : UtilitairesDTO('/percent','Percent',Colors.blue,'Calculator fonction'),
-    UtilitaireEnum.id_convert_romain : UtilitairesDTO('/convert_romain','Convert romain',Colors.red,'Convert romain'),
-    UtilitaireEnum.id_convert_memories : UtilitairesDTO('/convert_memories','Convert Memories',Colors.brown,'Convert romain'),
-    UtilitaireEnum.id_calculate_area : UtilitairesDTO('/calculate_area',"convert area",Colors.purple,'calculator fonction'),
-    UtilitaireEnum.id_calculate_temperature : UtilitairesDTO('/calculate_temperature',"Calculate temperature",Colors.deepOrange,'Calculate Temperature'),
-    UtilitaireEnum.id_date_friend : UtilitairesDTO('/date_friend',"Fiend",Colors.deepOrange,'Calculate Temperature'),
-    UtilitaireEnum.id_hexa : UtilitairesDTO('/calculHexa',"Fiend",Colors.green,'Calculate binaire'),
+    UtilitaireEnum.id_percent : UtilitairesDTO('/percent','Percent'),
+    UtilitaireEnum.id_convert_romain : UtilitairesDTO('/convert_romain','Convert romain'),
+    UtilitaireEnum.id_convert_memories : UtilitairesDTO('/convert_memories','Convert Memories'),
+    UtilitaireEnum.id_calculate_temperature : UtilitairesDTO('/calculate_temperature',"Calculate temperature"),
   };
 
   final _streamController = StreamController<Map<UtilitaireEnum,UtilitairesDTO>>();

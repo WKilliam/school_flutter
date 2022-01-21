@@ -6,7 +6,7 @@ class GridButton extends StatelessWidget {
   final String _text;
   final String _path;
 
-  const GridButton(this._cardColors,this._text,this._path, {required Key key,}) : super(key: key);
+  const GridButton(this._cardColors,this._text,this._path, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

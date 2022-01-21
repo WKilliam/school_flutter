@@ -6,114 +6,7 @@ import 'package:school_flutter/blocs/bloc_provider.dart';
 import 'package:school_flutter/blocs/blocs/controller/id_convert_memories_bloc.dart';
 
 class IdConvertMemoriesMethodes extends StatelessWidget {
-  convertType(double value, String types, String to) {
-    switch (types) {
-      case 'O':
-        switch (to) {
-          case 'O':
-            return value.toDouble();
-          case 'KO':
-            return (value / 1000).toDouble();
-          case 'MO':
-            return (value / 1000000).toDouble();
-          case 'GO':
-            return (value / 1000000000).toDouble();
-          case 'TO':
-            return (value / 1000000000000).toDouble();
-          case 'PO':
-            return (value / 1000000000000000).toDouble();
-          default:
-            return null;
-        }
-      case 'KO':
-        switch (to) {
-          case 'O':
-            return (value * 1000).toDouble();
-          case 'KO':
-            return (value).toDouble();
-          case 'MO':
-            return (value / 1000).toDouble();
-          case 'GO':
-            return (value / 1000000).toDouble();
-          case 'TO':
-            return (value / 1000000000).toDouble();
-          case 'PO':
-            return (value / 1000000000000).toDouble();
-          default:
-            return null;
-        }
-      case 'MO':
-        switch (to) {
-          case 'O':
-            return (value * 1000000).toDouble();
-          case 'KO':
-            return (value * 1000).toDouble();
-          case 'MO':
-            return (value).toDouble();
-          case 'GO':
-            return (value / 1000).toDouble();
-          case 'TO':
-            return (value / 1000000).toDouble();
-          case 'PO':
-            return (value / 1000000000).toDouble();
-          default:
-            return null;
-        }
-      case 'GO':
-        switch (to) {
-          case 'O':
-            return (value * 1000000000).toDouble();
-          case 'KO':
-            return (value * 1000000).toDouble();
-          case 'MO':
-            return (value * 1000).toDouble();
-          case 'GO':
-            return (value).toDouble();
-          case 'TO':
-            return (value / 1000).toDouble();
-          case 'PO':
-            return (value / 1000000).toDouble();
-          default:
-            return null;
-        }
-      case 'TO':
-        switch (to) {
-          case 'O':
-            return (value * 1000000000000).toDouble();
-          case 'KO':
-            return (value * 1000000000).toDouble();
-          case 'MO':
-            return (value * 1000000).toDouble();
-          case 'GO':
-            return (value * 1000).toDouble();
-          case 'TO':
-            return (value).toDouble();
-          case 'PO':
-            return (value / 1000).toDouble();
-          default:
-            return null;
-        }
-      case 'PO':
-        switch (to) {
-          case 'O':
-            return (value * 1000000000000000).toDouble();
-          case 'KO':
-            return (value * 1000000000000).toDouble();
-          case 'MO':
-            return (value * 1000000000).toDouble();
-          case 'GO':
-            return (value * 1000000).toDouble();
-          case 'TO':
-            return (value * 1000).toDouble();
-          case 'PO':
-            return (value).toDouble();
-          default:
-            return null;
-        }
-      default:
-        return null;
-    }
-  }
+
 
   Center center(String text) {
     return Center(
@@ -216,9 +109,8 @@ class IdConvertMemoriesMethodes extends StatelessWidget {
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                 )).toList(),
-                                value: snapshot.data['InstanceText'],
+                                value: snapshot.data['Instance'],
                                 onChanged: (value) {
-                                  bloc?.update("InstanceText",value);
                                   bloc?.update("Instance",value);
                                 },
                                 icon: const Icon(
@@ -289,9 +181,8 @@ class IdConvertMemoriesMethodes extends StatelessWidget {
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                 )).toList(),
-                                value: snapshot.data['ToText'],
+                                value: snapshot.data['To'],
                                 onChanged: (value) {
-                                  bloc?.update("ToText",value);
                                   bloc?.update("To",value);
                                 },
                                 icon: const Icon(
