@@ -1,5 +1,3 @@
-import 'package:school_flutter/methodes/id_hexa_methodes.dart';
-
 class HexaMethodes {
 
   static hexatoDeci(String hexa){
