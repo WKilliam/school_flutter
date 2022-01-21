@@ -1,7 +1,9 @@
+
 import 'dart:async';
+
 import '../../bloc.dart';
 
-class IDConvertirBloc extends Bloc {
+class CarreBloc extends Bloc {
 
   final Map <String,dynamic> _conversion = {
     "Longeur": 0.0,
@@ -22,7 +24,7 @@ class IDConvertirBloc extends Bloc {
   Sink<Map <String,dynamic>> get sink => _streamController.sink;
   Stream<Map <String,dynamic>> get stream => _streamController.stream;
 
-  IDConvertirBloc(){
+  CarreBloc(){
     sink.add(_conversion);
   }
 

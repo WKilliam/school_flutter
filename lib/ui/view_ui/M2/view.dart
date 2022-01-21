@@ -3,12 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:school_flutter/blocs/bloc_provider.dart';
-import 'package:school_flutter/blocs/blocs/controller/id_convert_convertir_bloc.dart';
+import 'package:school_flutter/blocs/blocs/controller/carre_bloc.dart';
 import 'package:school_flutter/components/CenterText.dart';
 import 'package:school_flutter/components/ContainerCustum.dart';
 import 'package:school_flutter/components/ScaffoldCustum.dart';
-import 'package:school_flutter/ui/view_ui/memories/methodes.dart';
-import 'package:school_flutter/ui/view_ui/percent/methodes.dart';
 
 import 'methodes.dart';
 
@@ -32,7 +30,7 @@ class ConvertirM2Ui extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = BlocProvider.of<IDConvertirBloc>(context);
+    final bloc = BlocProvider.of<CarreBloc>(context);
     return ScaffoldCustum(
         child: StreamBuilder<Map<String, dynamic>>(
           stream: bloc?.stream,
@@ -49,7 +47,7 @@ class ConvertirM2Ui extends StatelessWidget {
                       //For the backgroud i create a column
                       Column(
                         children: <Widget>[
-                          Container(height: 60.0),
+                          Container(height: 30.0),
                           //first element in the column is the white background (the Image.asset in your case)
                           DecoratedBox(
                             decoration: BoxDecoration(
@@ -57,7 +55,7 @@ class ConvertirM2Ui extends StatelessWidget {
                                 color: Colors.black26),
                             child: SizedBox(
                                 width: 393.0,
-                                height: 800.0,
+                                height: 400.0,
                                 child: Column(
                                   children: [
                                     Container(height: 20.0),
@@ -287,7 +285,7 @@ class ConvertirM2Ui extends StatelessWidget {
                                               iconEnabledColor: Colors.white,
                                               iconDisabledColor: Colors.grey,
                                               buttonHeight: 60,
-                                              buttonWidth: 60,
+                                              buttonWidth: 90,
                                               buttonPadding: const EdgeInsets
                                                   .only(left: 14, right: 14),
                                               buttonDecoration: BoxDecoration(
@@ -304,7 +302,7 @@ class ConvertirM2Ui extends StatelessWidget {
                                                   .only(
                                                   left: 14, right: 14),
                                               dropdownMaxHeight: 200,
-                                              dropdownWidth: 50,
+                                              dropdownWidth: 100,
                                               dropdownPadding: null,
                                               dropdownDecoration: BoxDecoration(
                                                 borderRadius: BorderRadius
@@ -371,7 +369,7 @@ class ConvertirM2Ui extends StatelessWidget {
                                               iconEnabledColor: Colors.white,
                                               iconDisabledColor: Colors.grey,
                                               buttonHeight: 60,
-                                              buttonWidth: 60,
+                                              buttonWidth: 90,
                                               buttonPadding: const EdgeInsets
                                                   .only(left: 14, right: 14),
                                               buttonDecoration: BoxDecoration(
@@ -388,7 +386,7 @@ class ConvertirM2Ui extends StatelessWidget {
                                                   .only(
                                                   left: 14, right: 14),
                                               dropdownMaxHeight: 200,
-                                              dropdownWidth: 50,
+                                              dropdownWidth: 80,
                                               dropdownPadding: null,
                                               dropdownDecoration: BoxDecoration(
                                                 borderRadius: BorderRadius
@@ -435,7 +433,7 @@ class ConvertirM2Ui extends StatelessWidget {
                                               bottom: 5.0,
                                               left: 10.0,
                                               right: 10.0),
-                                          labelStyle: TextStyle(
+                                          labelStyle: const TextStyle(
                                               color: Colors.red),
                                           fillColor: Colors.white10,
                                           border: const OutlineInputBorder(
@@ -468,7 +466,7 @@ class ConvertirM2Ui extends StatelessWidget {
                       //for the button i create another column
                       Column(children: <Widget>[
                         //first element in column is the transparent offset
-                        Container(height: 500.0),
+                        Container(height: 400.0),
                         Center(
                           child: ElevatedButton(
                             child: const Text("Convert"),
