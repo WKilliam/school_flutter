@@ -14,12 +14,12 @@ class IdDateFriendMethodes extends StatelessWidget {
     var differenceJour = picker2.difference(picker1).inDays;
     var differenceHeure = picker2.difference(picker1).inHours;
     var differenceMinute = picker2.difference(picker1).inMinutes;
-    if (picker1 >= picker2) {
+    /*if (picker1 >= picker2) {
       return ('${differenceJour * -1}, ${differenceHeure * -1}, ${differenceMinute * -1},');
     } else {
       return ('${differenceJour * 1}, ${differenceHeure * 1}, ${differenceMinute * 1}');
     }
-  }
+  }*/
   Center center(String text) {
     return Center(
       child:
@@ -226,5 +226,12 @@ class IdDateFriendMethodes extends StatelessWidget {
         //   ],
         // )
         );
+  }
+}
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
   }
 }
