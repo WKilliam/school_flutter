@@ -16,6 +16,7 @@ class HexaUi extends StatelessWidget {
     'HEX',
     'DEC',
     'BIN',
+    'OCTET',
   ];
 
   @override
@@ -380,7 +381,8 @@ class HexaUi extends StatelessWidget {
                         '1100',
                         '1101',
                         '1110',
-                        '1111'
+                        '1111',
+                        'null',
                       ];
                       if(itemsData.contains(data)){
                         bloc?.update("Result", HexaMethodes.convert(data, instance, to));
